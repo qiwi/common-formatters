@@ -1,7 +1,7 @@
 import {formatNumber} from '../src'
 
 describe('number', () => {
-  it('properly formats input string with default delimeters', () => {
+  it('properly formats input string with default delimiters', () => {
     expect(formatNumber(12345.6789)).toBe('12 345,6789')
   })
 

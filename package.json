@@ -4,7 +4,7 @@
   "description": "Common string formatters",
   "main": "src/index.js",
   "scripts": {
-    "jest": "jest -w 4",
+    "jest": "jest -w 2",
     "lint": "standard-flow src/**/*.js test/**/*.js",
     "flow": "flow",
     "test": "npm run lint && npm run flow && npm run jest",
@@ -21,7 +21,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/qiwi/security-context.git"
+    "url": "https://github.com/qiwi/common-formatters.git"
   },
   "keywords": [
     "format",
