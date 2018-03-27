@@ -1,6 +1,6 @@
 // @flow
 
-export type IAny = any
+export type IAny = any | string
 export type IFormatterOpts = Object
 export type IFormatted = string
 
