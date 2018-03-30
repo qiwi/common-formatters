@@ -7,19 +7,35 @@ import type {
   IValidator
 } from './interface'
 
-export type IFormatNumberOpts = {
+/**
+ * @interface IFormatCardPanOpts
+ * @property {string} digitDelimiter
+ * @property {string} maskSymbol
+ */
+export type IFormatCardPanOpts = {
   strict: boolean;
   maskSymbol: string;
   digitDelimiter: string;
 }
 
-const DEFAULT_OPTS: IFormatNumberOpts = {
+const DEFAULT_OPTS: IFormatCardPanOpts = {
   strict: true,
   maskSymbol: '*',
   digitDelimiter: ' '
 }
 
-export const format: IFormatter = (value: IAny, opts?: ?IFormatNumberOpts): IFormatted => {
+/**
+ * @name formatCardPan
+ * @type {Function}
+ * @param {string} value
+ * @param {Object} [opts]
+ * @returns {string}
+ * @example
+
+ formatCardPan('1234567812345678', {digitDelimiter: '-'}) // '1234-5678-1234-5678'
+
+ */
+export const format: IFormatter = (value: IAny, opts?: ?IFormatCardPanOpts): IFormatted => {
   // NOTE pan may be masked
   const cleared = ('' + value).replace(/[^*\d]/g, '')
   const {strict, digitDelimiter: dl} = Object.assign({}, DEFAULT_OPTS, opts)
@@ -38,7 +54,7 @@ export const format: IFormatter = (value: IAny, opts?: ?IFormatNumberOpts): IFor
   return cleared.replace(/(.{4})(?=(.){4,})/g, '$1' + dl)
 }
 
-export const validate: IValidator = (value: IAny, opts?: ?IFormatNumberOpts): boolean => {
+export const validate: IValidator = (value: IAny, opts?: ?IFormatCardPanOpts): boolean => {
   if (typeof value !== 'string') {
     return false
   }

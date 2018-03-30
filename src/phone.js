@@ -11,6 +11,19 @@ import {clearNumericValue} from './util'
 
 export const RUSSIAN_MOBILE_PHONE = '+* *** ***-**-**'
 
+/**
+ * @interface IFormatPhoneOpts
+ * @property {string} blocksDelimiter
+ * @property {string} countryCode
+ * @property {string} areaCode
+ * @property {boolean} areaBrackets
+ * @property {string} countryCodePrefix
+ * @property {number} countryCodeLength
+ * @property {number} areaCodeLength
+ * @property {number} phoneNumberLength
+ * @property {string} phoneNumberDelimiter
+ * @property {string} mask
+ */
 export type IFormatPhoneOpts = {
   strict: boolean;
   blocksDelimiter: string;
@@ -39,10 +52,27 @@ const DEFAULT_OPTS: IFormatPhoneOpts = {
 export const validate: IValidator = (value: IAny) => !!value.length
 
 /**
+ * Phone formatter.
  * Relied on E.164 https://en.wikipedia.org/wiki/E.164
- * @param value
- * @param opts
- * @returns {string}
+ *
+ * @name formatPhone
+ * @param {string} value
+ * @param {IFormatPhoneOpts} [opts]
+ * @return {string}
+ * @example
+
+ // Basic cases
+ formatPhone('1234567')     // 123-45-67
+ formatPhone('12345678')    // 1234-5678
+ formatPhone('12345')       // 1-23-45
+ formatPhone('1234567890')  // 1234567890
+
+ // Format by mask
+ formatPhone('79876543210', {mask: '+* *** ***-**-**'}) // +7 987 654-32-10
+
+ // Format by opts
+ formatPhone('223344', {countryCode: '7', areaCode: '8443', areaBrackets: true, phoneNumberDelimiter: '_'}) // +7 (8443) 22_33_44
+
  */
 export const format: IFormatter = (value: IAny, opts?: ?IFormatPhoneOpts): IFormatted => {
   const cleared = clearNumericValue(value)

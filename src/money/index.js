@@ -8,6 +8,13 @@ import type {
   IFormatter
 } from '../interface'
 
+/**
+ * @interface IFormatMoneyOpts
+ * @property {string} digitDelimiter
+ * @property {string} fractionDelimiter
+ * @property {string} currencyCode
+ * @property {string} currencySymbol
+ */
 export type IFormatMoneyOpts = {
   strict: boolean;
   digitDelimiter: string;
@@ -24,6 +31,21 @@ const DEFAULT_OPTS: IFormatMoneyOpts = {
   strict: true
 }
 
+/**
+ * Money formatter.
+ * @name formatMoney
+ * @type {Function}
+ * @example
+
+ formatMoney(12345.6789)   // '12 345,68'
+ formatMoney(12300.45, {currencyCode: 'RUB', fractionDelimiter: '.'}) // '12 300.45 ₽'
+ formatMoney(123.45, {currencySymbol: 'Foo'}) // '123,45 Foo'
+
+ * @public
+ * @param {string} value
+ * @param {IFormatMoneyOpts} [opts]
+ * @return {string}
+ */
 export const format: IFormatter = (value: IAny, opts?: ?IFormatMoneyOpts): IFormatted => {
   const formattedValue = formatNumber((+value).toFixed(2), opts)
   const {currencySymbol, currencyCode} = Object.assign({}, DEFAULT_OPTS, opts)
