@@ -9,8 +9,8 @@
 Common string formatters.
 
 ##### Motivation
-    There's no such thing as universal formatters collection, but ... Ha, and this one library is just as set of several controversial workarounds. 
-    What can be said in defense? Smaller is better.
+There's no such thing as universal formatters collection, but ... Ha, and this one library is just as set of several controversial workarounds. 
+What can be said in defense? Smaller is better.
 
 ##### Usage examples
 
@@ -31,6 +31,12 @@ Common string formatters.
 * [E.164](https://en.wikipedia.org/wiki/E.164)
 * [Formatting International Phone Numbers](https://support.twilio.com/hc/en-us/articles/223183008-Formatting-International-Phone-Numbers)
 ```javascript
+   // Basic cases
+   formatPhone('1234567')     // 123-45-67
+   formatPhone('12345678')    // 1234-5678
+   formatPhone('12345')       // 1-23-45
+   formatPhone('1234567890')  // 1234567890
+   
    // Format by mask
    formatPhone('79876543210', {mask: '+* *** ***-**-**'}) // +7 987 654-32-10
    
