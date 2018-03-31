@@ -1,6 +1,6 @@
 {
   "name": "@qiwi/common-formatters",
-  "version": "0.3.5",
+  "version": "0.3.6",
   "description": "Common string formatters",
   "main": "dist/index.js",
   "scripts": {
