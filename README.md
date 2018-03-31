@@ -8,54 +8,75 @@
 
 Common string formatters.
 
-##### Motivation
-There's no such thing as universal formatters collection, but ... Ha, and this one library is just as set of several controversial workarounds. 
+#### Motivation
+There's no such thing as universal formatters collection, but ... Ha, and this one library is just a set of several controversial workarounds. 
 What can be said in defense? Smaller is better.
 
 ##### Usage examples
-
 ```javascript
-    import {formatMoney, formatNumber, formatCardPan} from '@qiwi/common-formatters'
-    
+    import {formatMoney, formatNumber, formatCardPan, formatPhone} from '@qiwi/common-formatters'
+```
+
+##### Format money
+```javascript
     formatMoney(12345.6789)   // '12 345,68'
     formatMoney(12300.45, {currencyCode: 'RUB', fractionDelimiter: '.'}) // '12 300.45 ₽'
     formatMoney(123.45, {currencySymbol: 'Foo'}) // '123,45 Foo'
     
+    // Available opts
+    {
+      digitDelimiter: string;
+      fractionDelimiter: string;
+      currencyCode: string;
+      currencySymbol: string;
+    }
+```
+
+##### Numbers
+```javascript
+        
     formatNumber(12345.6789)  //  '12 345,6789'
     formatNumber(12345.6789, {digitDelimiter: ',', fractionDelimiter: '.'}) // '12,345.6789'
     
-    formatCardPan('1234567812345678', {digitDelimiter: '-'}) // '1234-5678-1234-5678'
+    // Opts
+    {
+      digitDelimiter: string;
+      fractionDelimiter: string;
+    }
 ```
 
 ##### Phone numbers
 * [E.164](https://en.wikipedia.org/wiki/E.164)
 * [Formatting International Phone Numbers](https://support.twilio.com/hc/en-us/articles/223183008-Formatting-International-Phone-Numbers)
 ```javascript
-   // Basic cases
-   formatPhone('1234567')     // 123-45-67
-   formatPhone('12345678')    // 1234-5678
-   formatPhone('12345')       // 1-23-45
-   formatPhone('1234567890')  // 1234567890
-   
-   // Format by mask
-   formatPhone('79876543210', {mask: '+* *** ***-**-**'}) // +7 987 654-32-10
-   
-   // Format by opts
-   formatPhone('223344', {countryCode: '7', areaCode: '8443', areaBrackets: true, phoneNumberDelimiter: '_'}) // +7 (8443) 22_33_44
+    // Basic cases
+    formatPhone('1234567')     // 123-45-67
+    formatPhone('12345678')    // 1234-5678
+    formatPhone('12345')       // 1-23-45
+    formatPhone('1234567890')  // 1234567890
+    
+    // Format by mask
+    formatPhone('79876543210', {mask: '+* *** ***-**-**'}) // +7 987 654-32-10
+    
+    // Format by opts
+    formatPhone('223344', {countryCode: '7', areaCode: '8443', areaBrackets: true, phoneNumberDelimiter: '_'}) // +7 (8443) 22_33_44
+
+    // Opts
+    {
+        blocksDelimiter: string;
+        countryCode: string;
+        areaCode: string;
+        areaBrackets: boolean;
+        areaCodeLength: number;
+        countryCodePrefix: string;
+        countryCodeLength: number;
+        phoneNumberLength: number;
+        phoneNumberDelimiter: string;
+        mask: string;
+    }
 ```
 
-Supported options:
+##### Card PAN
 ```javascript
-  {
-    blocksDelimiter: string;
-    countryCode: string;
-    areaCode: string;
-    areaBrackets: boolean;
-    areaCodeLength: number;
-    countryCodePrefix: string;
-    countryCodeLength: number;
-    phoneNumberLength: number;
-    phoneNumberDelimiter: string;
-    mask: string
-  }
+    formatCardPan('1234567812345678', {digitDelimiter: '-'}) // '1234-5678-1234-5678'
 ```
