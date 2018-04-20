@@ -109,11 +109,11 @@ export const format: IFormatter = (value: IAny, opts?: ?IFormatPhoneOpts): IForm
     .join(blocksDelimiter)
 }
 
-export function parseBlocks(value: string, ...blocks: Array<?number>) {
+export function parseBlocks(value: string, ...blocks: Array<?number>): Array<string> {
   const lengths = resolveBlockLengths(value.length, ...blocks)
   let pos = 0
 
-  return lengths.map(v => {
+  return lengths.map((v: number) => {
     const substr = value.substr(pos, v)
     pos = pos + v
     return substr
