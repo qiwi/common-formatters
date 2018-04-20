@@ -2,6 +2,16 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+<a name="0.3.8"></a>
+## [0.3.8](https://github.com/qiwi/common-formatters/compare/v0.3.7...v0.3.8) (2018-04-20)
+
+
+### Bug Fixes
+
+* **flow:** add parseBlocks result scheme ([189f59d](https://github.com/qiwi/common-formatters/commit/189f59d))
+
+
+
 <a name="0.3.7"></a>
 ## [0.3.7](https://github.com/qiwi/common-formatters/compare/v0.3.6...v0.3.7) (2018-04-14)
 
