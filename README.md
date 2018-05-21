@@ -1,4 +1,6 @@
 # common-formatters
+
+[![Greenkeeper badge](https://badges.greenkeeper.io/qiwi/common-formatters.svg)](https://greenkeeper.io/)
 [![js-standard-style](https://img.shields.io/badge/code%20style-standard-brightgreen.svg)](http://standardjs.com)
 [![buildStatus](https://img.shields.io/travis/qiwi/common-formatters.svg?maxAge=3600&branch=master)](https://travis-ci.org/qiwi/common-formatters)
 [![coverage](https://img.shields.io/coveralls/qiwi/common-formatters.svg?maxAge=3600)](https://coveralls.io/github/qiwi/common-formatters)
