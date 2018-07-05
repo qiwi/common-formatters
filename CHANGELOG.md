@@ -1,3 +1,10 @@
+## [0.3.9](https://github.com/qiwi/common-formatters/compare/v0.3.8...v0.3.9) (2018-07-05)
+
+
+### Bug Fixes
+
+* **formatNumber:** fix integer value processing ([9f3d4a1](https://github.com/qiwi/common-formatters/commit/9f3d4a1)), closes [#7](https://github.com/qiwi/common-formatters/issues/7)
+
 # Change Log
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
