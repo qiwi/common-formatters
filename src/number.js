@@ -6,6 +6,7 @@ import type {
   IFormatter,
   IValidator
 } from './interface'
+import {isNumericString} from './util'
 
 /**
  * @interface IFormatNumberOpts
@@ -48,10 +49,18 @@ export const format: IFormatter = (value: IAny, opts?: ?IFormatNumberOpts): IFor
     throw new Error('formatNumber: invalid input')
   }
 
-  return (+value)
-    .toString()
-    .replace(/(\d)(?=(\d{3})+\.)/g, '$1' + digitDelimiter)
-    .replace('.', fractionDelimiter)
+  const _value = isNumericString(value)
+    ? (+value).toFixed(Math.max(value.length - (+value|0).toString().length - 1, 0))
+    : (+value).toString()
+
+  return _value
+    .split('.')
+    .map((v, i) => i === 0
+      ? v.replace(/(\d)(?=(\d{3})+(?!\d))/g, '$1' + digitDelimiter)
+      : v
+    )
+    .join(fractionDelimiter)
+
 }
 
 export default format

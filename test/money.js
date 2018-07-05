@@ -13,7 +13,11 @@ describe('money', () => {
     expect(formatMoney(12300.45, {currencyCode: 'RUB', fractionDelimiter: '.'})).toEqual('12 300.45 ₽')
   })
 
-  it('allows to to override currency symbol', () => {
+  it('allows to override currency symbol', () => {
     expect(formatMoney(123.45, {currencySymbol: 'Foo'})).toEqual('123,45 Foo')
+  })
+
+  it('formats integers to money', () => {
+    expect(formatMoney(12345)).toBe('12 345,00')
   })
 })
