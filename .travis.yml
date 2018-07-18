@@ -1,9 +1,8 @@
 language: node_js
 node_js:
-  - '9'
+  - '10'
 install:
   - npm install
-  - npm build
 script:
   - npm run test_with_report
 
