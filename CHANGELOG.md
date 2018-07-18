@@ -1,3 +1,10 @@
+## [0.3.11](https://github.com/qiwi/common-formatters/compare/v0.3.10...v0.3.11) (2018-07-18)
+
+
+### Performance Improvements
+
+* rebuild with latest `semrel` ([74eabd5](https://github.com/qiwi/common-formatters/commit/74eabd5))
+
 ## [0.3.10](https://github.com/qiwi/common-formatters/compare/v0.3.9...v0.3.10) (2018-07-18)
 
 
