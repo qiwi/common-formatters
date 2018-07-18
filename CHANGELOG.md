@@ -1,3 +1,10 @@
+## [0.3.10](https://github.com/qiwi/common-formatters/compare/v0.3.9...v0.3.10) (2018-07-18)
+
+
+### Bug Fixes
+
+* **npm:** fix `files` pattern ([5d643ef](https://github.com/qiwi/common-formatters/commit/5d643ef))
+
 ## [0.3.9](https://github.com/qiwi/common-formatters/compare/v0.3.8...v0.3.9) (2018-07-05)
 
 
