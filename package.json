@@ -16,6 +16,11 @@
     "doc": "documentation build src/** -f html -o docs",
     "docs": "npm run doc"
   },
+  "files": [
+    "README.md",
+    "CHANGELOG.md",
+    "dist"
+  ],
   "repository": {
     "type": "git",
     "url": "https://github.com/qiwi/common-formatters.git"
@@ -65,11 +70,6 @@
       "<rootDir>/test/**/*.js"
     ]
   },
-  "files": [
-    "README.md",
-    "CHANGELOG.md",
-    "dist/"
-  ],
   "standard-flow": {
     "parser": "babel-eslint",
     "globals": [
