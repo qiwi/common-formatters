@@ -13,11 +13,13 @@ import {isNumericString} from './util'
  * @package interface
  * @property {string} digitDelimiter
  * @property {string} fractionDelimiter
+ * @property {number} fractionLength
  * @property {boolean} sign forces sign indication
  */
 export type IFormatNumberOpts = {
   digitDelimiter: string;
   fractionDelimiter: string;
+  fractionLength?: number;
   strict: boolean;
   sign: boolean;
 }
@@ -46,16 +48,23 @@ export const validate: IValidator = (value: IAny) => !isNaN(value)
 
  */
 export const format: IFormatter = (value: IAny, opts?: ?IFormatNumberOpts): IFormatted => {
-  const {fractionDelimiter, digitDelimiter, strict, sign} = {...DEFAULT_OPTS, ...opts}
+  const {fractionDelimiter, fractionLength, digitDelimiter, strict, sign} = {...DEFAULT_OPTS, ...opts}
 
   if (strict && !validate(value)) {
     throw new Error('formatNumber: invalid input')
   }
 
   const num = +value
-  const _value = isNumericString(value)
-    ? num.toFixed(Math.max(value.length - (num|0).toString().length - 1, 0))
-    : num.toString()
+
+  const fl = fractionLength === undefined
+    ? isNumericString(value)
+      ? Math.max(value.length - (num|0).toString().length - 1, 0)
+      : undefined
+    : fractionLength
+
+  const _value = fl === undefined
+    ? num.toString()
+    : num.toFixed(fl)
 
   const signPrefix = sign
     ? num > 0 ? '+' : ''

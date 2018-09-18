@@ -12,6 +12,7 @@ import type {
  * @interface IFormatMoneyOpts
  * @property {string} digitDelimiter
  * @property {string} fractionDelimiter
+ * @property {number} fractionLength
  * @property {string} currencyCode
  * @property {string} currencySymbol
  * @property {boolean} sign forces sign indication
@@ -20,6 +21,7 @@ export type IFormatMoneyOpts = {
   strict: boolean;
   digitDelimiter: string;
   fractionDelimiter: string;
+  fractionLength: number;
   currencyCode: string;
   currencySymbol: string;
   sign: boolean;
@@ -30,6 +32,7 @@ const DEFAULT_OPTS: IFormatMoneyOpts = {
   currencySymbol: '',
   digitDelimiter: ' ',
   fractionDelimiter: ',',
+  fractionLength: 2,
   strict: true,
   sign: false
 }
@@ -50,8 +53,9 @@ const DEFAULT_OPTS: IFormatMoneyOpts = {
  * @return {string}
  */
 export const format: IFormatter = (value: IAny, opts?: ?IFormatMoneyOpts): IFormatted => {
-  const formattedValue = formatNumber((+value).toFixed(2), opts)
-  const {currencySymbol, currencyCode} = Object.assign({}, DEFAULT_OPTS, opts)
+  const _opts = {...DEFAULT_OPTS, ...opts}
+  const formattedValue = formatNumber(value, _opts)
+  const {currencySymbol, currencyCode} = _opts
   const symbol = getSymbol(currencyCode, currencySymbol)
 
   return formattedValue + (symbol ? ' ' + symbol: '')

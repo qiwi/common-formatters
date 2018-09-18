@@ -36,4 +36,9 @@ describe('number', () => {
   it('supports forced sign indication', () => {
     expect(formatNumber(12345, {sign: true})).toBe('+12 345')
   })
+
+  it('supports fraction length declaration', () => {
+    expect(formatNumber(12345.12345, {fractionLength: 2})).toBe('12 345,12')
+    expect(formatNumber('12345.12345', {fractionLength: 10})).toBe('12 345,1234500000')
+  })
 })
