@@ -1,3 +1,12 @@
+# [0.4.0](https://github.com/qiwi/common-formatters/compare/v0.3.11...v0.4.0) (2018-09-18)
+
+
+### Features
+
+* **formatNumber:** add optional sign infication ([f382f3b](https://github.com/qiwi/common-formatters/commit/f382f3b)), closes [#17](https://github.com/qiwi/common-formatters/issues/17)
+* **formatNumber:** support `fractionLength` option ([6504109](https://github.com/qiwi/common-formatters/commit/6504109))
+* add percent formatter ([8c05a7a](https://github.com/qiwi/common-formatters/commit/8c05a7a)), closes [#16](https://github.com/qiwi/common-formatters/issues/16)
+
 ## [0.3.11](https://github.com/qiwi/common-formatters/compare/v0.3.10...v0.3.11) (2018-07-18)
 
 
