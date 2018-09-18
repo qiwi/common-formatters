@@ -20,4 +20,8 @@ describe('money', () => {
   it('formats integers to money', () => {
     expect(formatMoney(12345)).toBe('12 345,00')
   })
+
+  it('supports sing indication', () => {
+    expect(formatMoney(12345, {sign: true})).toBe('+12 345,00')
+  })
 })

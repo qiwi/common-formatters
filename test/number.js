@@ -28,4 +28,12 @@ describe('number', () => {
       expect(formatNumber(v)).toBe('0')
     })
   })
+
+  it('supports negatives', () => {
+    expect(formatNumber(-10000)).toBe('-10 000')
+  })
+
+  it('supports forced sign indication', () => {
+    expect(formatNumber(12345, {sign: true})).toBe('+12 345')
+  })
 })

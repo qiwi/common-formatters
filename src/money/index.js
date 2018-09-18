@@ -14,6 +14,7 @@ import type {
  * @property {string} fractionDelimiter
  * @property {string} currencyCode
  * @property {string} currencySymbol
+ * @property {boolean} sign forces sign indication
  */
 export type IFormatMoneyOpts = {
   strict: boolean;
@@ -21,6 +22,7 @@ export type IFormatMoneyOpts = {
   fractionDelimiter: string;
   currencyCode: string;
   currencySymbol: string;
+  sign: boolean;
 }
 
 const DEFAULT_OPTS: IFormatMoneyOpts = {
@@ -28,7 +30,8 @@ const DEFAULT_OPTS: IFormatMoneyOpts = {
   currencySymbol: '',
   digitDelimiter: ' ',
   fractionDelimiter: ',',
-  strict: true
+  strict: true,
+  sign: false
 }
 
 /**
