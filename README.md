@@ -16,10 +16,10 @@ What can be said in defense? Smaller is better.
 
 ##### Usage examples
 ```javascript
-    import {formatMoney, formatNumber, formatCardPan, formatPhone} from '@qiwi/common-formatters'
+    import {formatMoney, formatNumber, formatCardPan, formatPhone, formatPercent} from '@qiwi/common-formatters'
 ```
 
-##### Format money
+##### Money
 ```javascript
     formatMoney(12345.6789)   // '12 345,68'
     formatMoney(12300.45, {currencyCode: 'RUB', fractionDelimiter: '.'}) // '12 300.45 ₽'
@@ -29,8 +29,10 @@ What can be said in defense? Smaller is better.
     {
       digitDelimiter: string;
       fractionDelimiter: string;
+      fractionLength: number;
       currencyCode: string;
       currencySymbol: string;
+      sign: boolean;
     }
 ```
 
@@ -44,6 +46,26 @@ What can be said in defense? Smaller is better.
     {
       digitDelimiter: string;
       fractionDelimiter: string;
+      fractionLength?: number;
+      strict: boolean;
+      sign: boolean;
+    }
+```
+
+##### Percents
+```javascript
+        
+    formatPercent(0.123)  //  '12,30%'
+    formatPercent(567, {sign: true, fractionLength: 0}) // '56 700%'
+    
+    // Opts
+    {
+      strict: boolean;
+      digitDelimiter: string;
+      fractionDelimiter: string;
+      fractionLength: number;
+      multiplier: number;
+      sign: boolean;
     }
 ```
 
