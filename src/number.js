@@ -33,6 +33,9 @@ const DEFAULT_OPTS: IFormatNumberOpts = {
 
 export const validate: IValidator = (value: IAny) => !isNaN(value)
 
+export const MINUS_SIGN = '−'
+export const PLUS_SIGN = '+'
+
 /**
  * Number formatter.
  * @name formatNumber
@@ -63,12 +66,14 @@ export const format: IFormatter = (value: IAny, opts?: ?IFormatNumberOpts): IFor
     : fractionLength
 
   const _value = fl === undefined
-    ? num.toString()
-    : num.toFixed(fl)
+    ? Math.abs(num).toString()
+    : Math.abs(num).toFixed(fl)
 
-  const signPrefix = sign
-    ? num > 0 ? '+' : ''
-    : ''
+  const signPrefix = num < 0
+    ? MINUS_SIGN
+    : sign && num > 0
+      ? PLUS_SIGN
+      : ''
 
   return signPrefix + _value
     .split('.')

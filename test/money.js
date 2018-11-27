@@ -1,4 +1,4 @@
-import {formatMoney} from '../src'
+import {formatMoney, MINUS_SIGN} from '../src'
 
 describe('money', () => {
   it('properly formats input string with default delimiters', () => {
@@ -23,5 +23,9 @@ describe('money', () => {
 
   it('supports sing indication', () => {
     expect(formatMoney(12345, {sign: true})).toBe('+12 345,00')
+  })
+  it('supports negative', () => {
+    expect(formatMoney(-1232245, {sign: true})).toBe(`${MINUS_SIGN}1 232 245,00`)
+    expect(formatMoney(-12025)).toBe(`${MINUS_SIGN}12 025,00`)
   })
 })
