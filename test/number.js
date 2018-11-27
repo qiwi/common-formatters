@@ -1,4 +1,4 @@
-import {formatNumber} from '../src'
+import {formatNumber, MINUS_SIGN} from '../src'
 
 describe('number', () => {
   it('properly formats input string with default delimiters', () => {
@@ -30,7 +30,8 @@ describe('number', () => {
   })
 
   it('supports negatives', () => {
-    expect(formatNumber(-10000)).toBe('-10 000')
+    expect(formatNumber(-10000)).toBe(`${MINUS_SIGN}10 000`)
+    expect(formatNumber('-10000')).toBe(`${MINUS_SIGN}10 000`)
   })
 
   it('supports forced sign indication', () => {

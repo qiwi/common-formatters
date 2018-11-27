@@ -1,6 +1,6 @@
 // @flow
 
-import formatNumber from './number'
+import formatNumber, {MINUS_SIGN, PLUS_SIGN} from './number'
 import formatMoney from './money'
 import formatCardPan from './cardpan'
 import formatPhone, {RUSSIAN_MOBILE_PHONE} from './phone'
@@ -12,5 +12,7 @@ export {
   formatMoney,
   formatCardPan,
   formatPhone,
-  RUSSIAN_MOBILE_PHONE
+  RUSSIAN_MOBILE_PHONE,
+  MINUS_SIGN,
+  PLUS_SIGN
 }

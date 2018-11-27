@@ -1,6 +1,6 @@
-import {formatPercent} from '../src'
+import {formatPercent, MINUS_SIGN} from '../src'
 
-describe('money', () => {
+describe('percent', () => {
   it('properly formats input string with default delimiters', () => {
     expect(formatPercent(0.678901)).toBe('67,89%')
   })
@@ -18,7 +18,7 @@ describe('money', () => {
   })
 
   it('supports fraction length customization', () => {
-    expect(formatPercent(-0.123, {fractionLength: 3, sign: true})).toBe('-12,300%')
+    expect(formatPercent(-0.123, {fractionLength: 3, sign: true})).toBe(`${MINUS_SIGN}12,300%`)
     expect(formatPercent(0.123456, {fractionLength: 0})).toBe('12%')
   })
 })
