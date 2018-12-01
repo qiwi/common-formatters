@@ -10,8 +10,7 @@
     "test": "npm run lint && npm run flow && npm run build && npm run jest",
     "flow_coverage": "flow-coverage-report -i 'src/**/*.js' -t html -t json -t text --threshold 90",
     "build": "BABEL_ENV=production babel src --out-dir dist",
-    "test_with_report": "npm test && npm run codeclimate_push && npm run coveralls_push",
-    "codeclimate_push": "codeclimate-test-reporter < ./coverage/lcov.info",
+    "test_with_report": "npm test && npm run coveralls_push",
     "coveralls_push": "cat ./coverage/lcov.info | coveralls",
     "doc": "documentation build src/** -f html -o docs",
     "docs": "npm run doc"
@@ -47,7 +46,6 @@
     "babel-preset-flow": "^6.23.0",
     "babel-preset-minify": "^0.5.0",
     "babel-register": "^6.26.0",
-    "codeclimate-test-reporter": "^0.5.1",
     "coveralls": "^3.0.2",
     "documentation": "^8.1.2",
     "flow-bin": "^0.87.0",

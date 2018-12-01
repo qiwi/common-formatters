@@ -6,7 +6,7 @@
 [![coverage](https://img.shields.io/coveralls/qiwi/common-formatters.svg?maxAge=3600)](https://coveralls.io/github/qiwi/common-formatters)
 [![dependencyStatus](https://img.shields.io/david/qiwi/common-formatters.svg?maxAge=3600)](https://david-dm.org/qiwi/common-formatters)
 [![devDependencyStatus](https://img.shields.io/david/dev/qiwi/common-formatters.svg?maxAge=3600)](https://david-dm.org/qiwi/common-formatters)
-[![Code Climate](https://codeclimate.com/github/codeclimate/codeclimate/badges/gpa.svg)](https://codeclimate.com/github/qiwi/common-formatters)
+[![Maintainability](https://api.codeclimate.com/v1/badges/aa149c9058728b89a577/maintainability)](https://codeclimate.com/github/qiwi/common-formatters/maintainability)
 
 Common string formatters.
 
