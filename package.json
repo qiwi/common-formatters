@@ -4,7 +4,7 @@
   "description": "Common string formatters",
   "main": "dist/index.js",
   "scripts": {
-    "jest": "BABEL_ENV=test NODE_ENV=test jest --no-cache -w 1 --detectOpenHandles",
+    "jest": "BABEL_ENV=test NODE_ENV=test jest --no-cache -w 1 --detectOpenHandles  --config jest.config.json",
     "lint": "standard-flow src/**/*.js test/**/*.js",
     "flow": "flow",
     "test": "npm run lint && npm run flow && npm run build && npm run jest",
@@ -41,6 +41,7 @@
     "@babel/preset-env": "^7.1.6",
     "@babel/preset-flow": "^7.0.0",
     "@babel/register": "^7.0.0",
+    "@babel/runtime": "^7.1.5",
     "@semantic-release/changelog": "^3.0.1",
     "@semantic-release/git": "^7.0.5",
     "@semantic-release/github": "^5.2.5",
@@ -58,18 +59,6 @@
     "lodash": "^4.17.11",
     "semantic-release": "^15.12.3",
     "standard-flow": "^1.0.0"
-  },
-  "jest": {
-    "collectCoverage": true,
-    "coveragePathIgnorePatterns": [
-      "<rootDir>/src/interface.js"
-    ],
-    "collectCoverageFrom": [
-      "<rootDir>/src/**/*.js"
-    ],
-    "testMatch": [
-      "<rootDir>/test/**/*.js"
-    ]
   },
   "standard-flow": {
     "parser": "babel-eslint",
