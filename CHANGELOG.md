@@ -1,3 +1,10 @@
+# [0.5.0](https://github.com/qiwi/common-formatters/compare/v0.4.0...v0.5.0) (2018-12-03)
+
+
+### Features
+
+* add typographic minus symbol ([da6ed54](https://github.com/qiwi/common-formatters/commit/da6ed54))
+
 # [0.4.0](https://github.com/qiwi/common-formatters/compare/v0.3.11...v0.4.0) (2018-09-18)
 
 
