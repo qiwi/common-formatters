@@ -7,13 +7,13 @@
     "jest": "BABEL_ENV=test NODE_ENV=test jest --no-cache -w 1 --detectOpenHandles  --config jest.config.json",
     "lint": "standard-flow src/**/*.js test/**/*.js",
     "flow": "flow",
-    "test": "npm run lint && npm run flow && npm run build && npm run jest",
+    "test": "yarn lint && yarn flow && yarn jest",
     "flow_coverage": "flow-coverage-report -i 'src/**/*.js' -t html -t json -t text --threshold 90",
     "build": "BABEL_ENV=production babel src --out-dir dist",
-    "test_with_report": "npm test && npm run coveralls_push",
+    "test_with_report": "npm test && yarn coveralls_push",
     "coveralls_push": "cat ./coverage/lcov.info | coveralls",
     "doc": "documentation build src/** -f html -o docs",
-    "docs": "npm run doc"
+    "docs": "yarn doc"
   },
   "files": [
     "README.md",
