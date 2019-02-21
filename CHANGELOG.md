@@ -1,3 +1,15 @@
+# [0.6.0](https://github.com/qiwi/common-formatters/compare/v0.5.0...v0.6.0) (2019-02-21)
+
+
+### Bug Fixes
+
+* **lint:** repair lint script ([7e804bd](https://github.com/qiwi/common-formatters/commit/7e804bd))
+
+
+### Features
+
+* add libdefs generation ([83bc801](https://github.com/qiwi/common-formatters/commit/83bc801)), closes [#18](https://github.com/qiwi/common-formatters/issues/18)
+
 # [0.5.0](https://github.com/qiwi/common-formatters/compare/v0.4.0...v0.5.0) (2018-12-03)
 
 
