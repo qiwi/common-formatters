@@ -1,3 +1,7 @@
+/**
+ * @module @qiwi/common-formatter
+ */
+
 import formatNumber from './number'
 import {
   IAny,
@@ -6,6 +10,7 @@ import {
 } from './interface'
 
 /**
+ * Percent value formatter.
  * @interface IFormatPercentOpts
  * @property {string} digitDelimiter
  * @property {string} fractionDelimiter

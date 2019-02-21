@@ -1,3 +1,7 @@
+/**
+ * @module @qiwi/common-formatter
+ */
+
 import {
   IAny,
   IFormatted,
@@ -10,6 +14,7 @@ import {clearNumericValue} from './util'
 export const RUSSIAN_MOBILE_PHONE: string = '+* *** ***-**-**'
 
 /**
+ * Phone formatter.
  * @interface IFormatPhoneOpts
  * @property {string} blocksDelimiter
  * @property {string} countryCode

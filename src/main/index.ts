@@ -1,3 +1,7 @@
+/**
+ * @module @qiwi/common-formatter
+ */
+
 import formatNumber, {MINUS_SIGN, PLUS_SIGN} from './number'
 import formatMoney from './money'
 import formatCardPan from './cardpan'

@@ -1,3 +1,7 @@
+/**
+ * @module @qiwi/common-formatter
+ */
+
 export type IAny = any
 export type IFormatterOpts = {
   [key: string]: IAny

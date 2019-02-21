@@ -1,3 +1,7 @@
+/**
+ * @module @qiwi/common-formatter
+ */
+
 import symbols from './symbols'
 import formatNumber from '../number'
 import {

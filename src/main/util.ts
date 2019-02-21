@@ -1,4 +1,6 @@
-// @flow
+/**
+ * @module @qiwi/common-formatter/lib/es5/util
+ */
 
 import {IAny} from './interface'
 

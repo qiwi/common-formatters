@@ -1,3 +1,7 @@
+/**
+ * @module @qiwi/common-formatter
+ */
+
 import {
   IAny,
   IFormatted,
@@ -8,7 +12,6 @@ import {isNumericString} from './util'
 
 /**
  * @interface IFormatNumberOpts
- * @package interface
  * @property {string} digitDelimiter
  * @property {string} fractionDelimiter
  * @property {number} fractionLength
@@ -36,6 +39,7 @@ export const PLUS_SIGN: string = '+'
 
 /**
  * Number formatter.
+ * @module @qiwi/common-formatters
  * @name formatNumber
  * @type {Function}
  * @public

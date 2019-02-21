@@ -71,6 +71,7 @@
     "tslint": "^5.12.1",
     "tslint-config-standard": "^8.0.1",
     "typedoc": "^0.14.2",
+    "typedoc-plugin-external-module-name": "^2.0.0",
     "typescript": "^3.3.3",
     "yargs": "^13.2.1"
   },

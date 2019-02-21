@@ -1,3 +1,7 @@
+/**
+ * @module @qiwi/common-formatter
+ */
+
 export const RUB: string = '₽'
 export const USD: string = '$'
 export const EUR: string = '€'

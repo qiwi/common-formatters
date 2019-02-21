@@ -1,3 +1,7 @@
+/**
+ * @module @qiwi/common-formatter
+ */
+
 import {
   IAny,
   IFormatted,
@@ -23,6 +27,7 @@ const DEFAULT_OPTS: IFormatCardPanOpts = {
 }
 
 /**
+ * Card PAN formatter.
  * @name formatCardPan
  * @type {Function}
  * @param {string} value
