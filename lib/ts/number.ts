@@ -1,6 +1,4 @@
-// @flow
-
-import type {
+import {
   IAny,
   IFormatted,
   IFormatter,
@@ -17,11 +15,11 @@ import {isNumericString} from './util'
  * @property {boolean} sign forces sign indication
  */
 export type IFormatNumberOpts = {
-  digitDelimiter: string;
-  fractionDelimiter: string;
+  digitDelimiter?: string;
+  fractionDelimiter?: string;
   fractionLength?: number;
-  strict: boolean;
-  sign: boolean;
+  strict?: boolean;
+  sign?: boolean;
 }
 
 const DEFAULT_OPTS: IFormatNumberOpts = {
@@ -50,7 +48,7 @@ export const PLUS_SIGN = '+'
  formatNumber(12345.6789, {digitDelimiter: ',', fractionDelimiter: '.'}) // '12,345.6789'
 
  */
-export const format: IFormatter = (value: IAny, opts?: ?IFormatNumberOpts): IFormatted => {
+export const format: IFormatter = (value: IAny, opts?: IFormatNumberOpts): IFormatted => {
   const {fractionDelimiter, fractionLength, digitDelimiter, strict, sign} = {...DEFAULT_OPTS, ...opts}
 
   if (strict && !validate(value)) {

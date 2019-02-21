@@ -1,6 +1,4 @@
-// @flow
-
-import type {
+import {
   IAny,
   IFormatted,
   IFormatter,
@@ -13,9 +11,9 @@ import type {
  * @property {string} maskSymbol
  */
 export type IFormatCardPanOpts = {
-  strict: boolean;
-  maskSymbol: string;
-  digitDelimiter: string;
+  strict?: boolean;
+  maskSymbol?: string;
+  digitDelimiter?: string;
 }
 
 const DEFAULT_OPTS: IFormatCardPanOpts = {
@@ -35,7 +33,7 @@ const DEFAULT_OPTS: IFormatCardPanOpts = {
  formatCardPan('1234567812345678', {digitDelimiter: '-'}) // '1234-5678-1234-5678'
 
  */
-export const format: IFormatter = (value: IAny, opts?: ?IFormatCardPanOpts): IFormatted => {
+export const format: IFormatter = (value: IAny, opts?: IFormatCardPanOpts): IFormatted => {
   // NOTE pan may be masked
   const cleared = ('' + value).replace(/[^*\d]/g, '')
   const {strict, digitDelimiter: dl} = Object.assign({}, DEFAULT_OPTS, opts)
@@ -54,7 +52,7 @@ export const format: IFormatter = (value: IAny, opts?: ?IFormatCardPanOpts): IFo
   return cleared.replace(/(.{4})(?=(.){4,})/g, '$1' + dl)
 }
 
-export const validate: IValidator = (value: IAny, opts?: ?IFormatCardPanOpts): boolean => {
+export const validate: IValidator = (value: IAny): boolean => {
   if (typeof value !== 'string') {
     return false
   }

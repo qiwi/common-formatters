@@ -1,13 +1,22 @@
 {
+  "preset": "ts-jest",
   "testEnvironment": "node",
   "collectCoverage": true,
   "coveragePathIgnorePatterns": [
     "<rootDir>/src/main/interface.js"
   ],
   "collectCoverageFrom": [
-    "<rootDir>/src/main/**/*.js"
+    "<rootDir>/src/main/**/*"
   ],
   "testMatch": [
-    "<rootDir>/src/test/**/*.js"
+    "<rootDir>/src/test/**/*"
+  ],
+  "moduleFileExtensions": [
+    "ts",
+    "tsx",
+    "js",
+    "jsx",
+    "json",
+    "node"
   ]
 }

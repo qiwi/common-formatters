@@ -2,18 +2,23 @@
   "name": "@qiwi/common-formatters",
   "version": "0.5.0",
   "description": "Common string formatters",
-  "main": "dist/index.js",
+  "main": "lib/es5/index.js",
   "scripts": {
+    "clean": "rm -rf lib typings",
     "jest": "BABEL_ENV=test NODE_ENV=test jest --no-cache -w 1 --detectOpenHandles  --config jest.config.json",
     "lint": "standard-flow src/**/*.js --fix",
-    "flow": "flow",
     "test": "yarn lint && yarn flow && yarn jest",
-    "flow_coverage": "flow-coverage-report -i 'src/main/**/*.js' -t html -t json -t text --threshold 90",
-    "build": "BABEL_ENV=production babel src/main --out-dir dist",
+    "build": "yarn clean && yarn build_es5 && yarn build_es6 && yarn build_ts",
     "test_with_report": "npm test && yarn coveralls_push",
     "coveralls_push": "cat ./coverage/lcov.info | coveralls",
     "doc": "documentation build src/main/** -f html -o docs",
-    "docs": "yarn doc"
+    "docs": "yarn doc",
+    "build_es5": "mkdir -p lib/es5 && tsc -p tsconfig.json --target ES5 --outDir lib/es5",
+    "build_es6": "mkdir -p lib/es6 && tsc -p tsconfig.json --target ES6 --outDir lib/es6",
+    "build_ts": "cp -r src/main/ lib/ts/",
+    "build_ts_libdefs": "yarn dtsgen && yarn tsfix",
+    "build_flow_libdefs": "yarn flowgen && yarn flowfix",
+    "build_libdefs": "yarn build_ts_libdefs && yarn build_flow_libdefs && yarn append"
   },
   "files": [
     "README.md",
@@ -46,36 +51,18 @@
     "@semantic-release/git": "^7.0.8",
     "@semantic-release/github": "^5.2.10",
     "@semantic-release/npm": "^5.1.4",
+    "@types/jest": "^24.0.6",
     "babel-core": "^7.0.0-bridge.0",
     "babel-jest": "^24.1.0",
     "babel-preset-minify": "^0.5.0",
     "coveralls": "^3.0.2",
-    "documentation": "^9.1.1",
-    "flow-bin": "^0.93.0",
-    "flow-coverage-report": "^0.6.1",
-    "flow-remove-types": "^1.2.3",
     "jest": "^24.1.0",
-    "jsdoc": "^3.5.5",
     "lodash": "^4.17.11",
     "semantic-release": "^15.13.3",
-    "standard-flow": "^1.0.0"
-  },
-  "standard-flow": {
-    "parser": "babel-eslint",
-    "globals": [
-      "it",
-      "expect",
-      "describe"
-    ],
-    "ignore": [],
-    "plugins": [
-      "flowtype"
-    ],
-    "settings": {
-      "flowtype": {
-        "onlyFilesWithFlowAnnotation": true
-      }
-    }
+    "ts-jest": "^24.0.0",
+    "tslib": "^1.9.3",
+    "typedoc": "^0.14.2",
+    "typescript": "^3.3.3"
   },
   "release": {
     "branch": "master",

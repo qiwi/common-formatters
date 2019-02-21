@@ -1,5 +1,3 @@
-// @flow
-
 export const RUB = '₽'
 export const USD = '$'
 export const EUR = '€'

@@ -1,6 +1,4 @@
-// @flow
-
-import type {
+import {
   IAny,
   IFormatted,
   IFormatter,
@@ -25,17 +23,17 @@ export const RUSSIAN_MOBILE_PHONE = '+* *** ***-**-**'
  * @property {string} mask
  */
 export type IFormatPhoneOpts = {
-  strict: boolean;
-  blocksDelimiter: string;
+  strict?: boolean;
+  blocksDelimiter?: string;
   countryCode?: string;
   areaCode?: string;
-  areaBrackets: boolean;
-  countryCodePrefix: string;
-  countryCodeLength: ?number;
-  areaCodeLength: ?number;
-  phoneNumberLength?: ?number;
-  phoneNumberDelimiter: string;
-  mask?: ?string
+  areaBrackets?: boolean;
+  countryCodePrefix?: string;
+  countryCodeLength?: number;
+  areaCodeLength?: number;
+  phoneNumberLength?: number;
+  phoneNumberDelimiter?: string;
+  mask?: string | null
 }
 
 const DEFAULT_OPTS: IFormatPhoneOpts = {
@@ -74,7 +72,7 @@ export const validate: IValidator = (value: IAny) => !!value.length
  formatPhone('223344', {countryCode: '7', areaCode: '8443', areaBrackets: true, phoneNumberDelimiter: '_'}) // +7 (8443) 22_33_44
 
  */
-export const format: IFormatter = (value: IAny, opts?: ?IFormatPhoneOpts): IFormatted => {
+export const format: IFormatter = (value: IAny, opts?: IFormatPhoneOpts): IFormatted => {
   const cleared = clearNumericValue(value)
   const {
     strict,
@@ -109,7 +107,7 @@ export const format: IFormatter = (value: IAny, opts?: ?IFormatPhoneOpts): IForm
     .join(blocksDelimiter)
 }
 
-export function parseBlocks (value: string, ...blocks: Array<?number>): Array<string> {
+export const parseBlocks = (value: string, ...blocks: Array<number|undefined>): Array<string> => {
   const lengths = resolveBlockLengths(value.length, ...blocks)
   let pos = 0
 
@@ -120,9 +118,9 @@ export function parseBlocks (value: string, ...blocks: Array<?number>): Array<st
   })
 }
 
-export function resolveBlockLengths (entireLength: number, ...blocks: Array<?number>): Array<number> {
-  const known= ((blocks.filter(v => typeof v === 'number'): Array<any>): Array<number>)
-  const sum = known.reduce((m, v) => m + v, 0)
+export const resolveBlockLengths = (entireLength: number, ...blocks: Array<number|undefined>): Array<number> => {
+  const known = blocks.filter(v => v !== undefined) as Array<number>
+  const sum: number = known.reduce((m, v) => m + v, 0)
   const diff = entireLength - sum
 
   switch (blocks.length - known.length) {
@@ -144,7 +142,7 @@ export function resolveBlockLengths (entireLength: number, ...blocks: Array<?num
   }
 }
 
-export function formatAreaCode (value: ?string, brackets: boolean): ?string {
+export const formatAreaCode = (value?: string, brackets?: boolean): string | null=> {
   if (!value || !value.length) {
     return null
   }
@@ -154,7 +152,7 @@ export function formatAreaCode (value: ?string, brackets: boolean): ?string {
     : value
 }
 
-export function formatCountryCode (value: ?string, prefix: string): ?string {
+export const formatCountryCode = (value?: string, prefix?: string): string | null => {
   if (!value || !value.length) {
     return null
   }
@@ -162,7 +160,7 @@ export function formatCountryCode (value: ?string, prefix: string): ?string {
   return prefix + value
 }
 
-export function formatPhoneNumber (value: string, delimiter: string): ?string {
+export function formatPhoneNumber (value: string, delimiter: string = ''): string | null {
   switch (value.length) {
     case 0:
       return null

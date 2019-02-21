@@ -1,8 +1,6 @@
-// @flow
-
 import symbols from './symbols'
 import formatNumber from '../number'
-import type {
+import {
   IAny,
   IFormatted,
   IFormatter
@@ -18,13 +16,13 @@ import type {
  * @property {boolean} sign forces sign indication
  */
 export type IFormatMoneyOpts = {
-  strict: boolean;
-  digitDelimiter: string;
-  fractionDelimiter: string;
-  fractionLength: number;
-  currencyCode: string;
-  currencySymbol: string;
-  sign: boolean;
+  strict?: boolean;
+  digitDelimiter?: string;
+  fractionDelimiter?: string;
+  fractionLength?: number;
+  currencyCode?: string;
+  currencySymbol?: string;
+  sign?: boolean;
 }
 
 const DEFAULT_OPTS: IFormatMoneyOpts = {
@@ -52,7 +50,7 @@ const DEFAULT_OPTS: IFormatMoneyOpts = {
  * @param {IFormatMoneyOpts} [opts]
  * @return {string}
  */
-export const format: IFormatter = (value: IAny, opts?: ?IFormatMoneyOpts): IFormatted => {
+export const format: IFormatter = (value: IAny, opts?: IFormatMoneyOpts): IFormatted => {
   const _opts = {...DEFAULT_OPTS, ...opts}
   const formattedValue = formatNumber(value, _opts)
   const {currencySymbol, currencyCode} = _opts
@@ -61,6 +59,6 @@ export const format: IFormatter = (value: IAny, opts?: ?IFormatMoneyOpts): IForm
   return formattedValue + (symbol ? ' ' + symbol: '')
 }
 
-export const getSymbol = (currencyCode: string, fallback?: ?string): ?string => symbols[currencyCode] || fallback
+export const getSymbol = (currencyCode?: string, fallback?: string): string | undefined => currencyCode && symbols[currencyCode] || fallback
 
 export default format

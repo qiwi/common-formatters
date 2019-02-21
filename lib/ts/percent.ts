@@ -1,7 +1,5 @@
-// @flow
-
 import formatNumber from './number'
-import type {
+import {
   IAny,
   IFormatted,
   IFormatter
@@ -16,12 +14,12 @@ import type {
  * @property {boolean} sign forces sign indication
  */
 export type IFormatPercentOpts = {
-  strict: boolean;
-  digitDelimiter: string;
-  fractionDelimiter: string;
-  fractionLength: number;
-  multiplier: number;
-  sign: boolean;
+  strict?: boolean;
+  digitDelimiter?: string;
+  fractionDelimiter?: string;
+  fractionLength?: number;
+  multiplier?: number;
+  sign?: boolean;
 }
 
 const DEFAULT_OPTS: IFormatPercentOpts = {
@@ -33,9 +31,9 @@ const DEFAULT_OPTS: IFormatPercentOpts = {
   multiplier: 100
 }
 
-export const format: IFormatter = (value: IAny, opts?: ?IFormatPercentOpts): IFormatted => {
+export const format: IFormatter = (value: IAny, opts?: IFormatPercentOpts): IFormatted => {
   const _opts = {...DEFAULT_OPTS, ...opts}
-  const _value = _opts.multiplier * +value
+  const _value = (_opts.multiplier || 1) * +value
   const formattedValue = formatNumber(_value, _opts)
 
   return formattedValue + '%'

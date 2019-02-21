@@ -1,0 +1,29 @@
+{
+  "compilerOptions": {
+    "baseUrl": "./src/main",
+    "moduleResolution": "node",
+    "module": "es2015",
+    "target": "es5",
+    "lib": [
+      "esnext"
+    ],
+    "strict": true,
+    "sourceMap": true,
+    "declaration": false,
+    "noEmitHelpers": true,
+    "noUnusedLocals": true,
+    "noUnusedParameters": true,
+    "importHelpers": true,
+    "allowSyntheticDefaultImports": true,
+    "skipLibCheck": true,
+    "resolveJsonModule": true
+  },
+  "include": [
+    "src/**/*"
+  ],
+  "exclude": [
+    "node_modules",
+    "**/test/*.ts",
+    "src/test"
+  ]
+}
