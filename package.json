@@ -5,14 +5,14 @@
   "main": "dist/index.js",
   "scripts": {
     "jest": "BABEL_ENV=test NODE_ENV=test jest --no-cache -w 1 --detectOpenHandles  --config jest.config.json",
-    "lint": "standard-flow src/**/*.js test/**/*.js",
+    "lint": "standard-flow src/**/*.js",
     "flow": "flow",
     "test": "yarn lint && yarn flow && yarn jest",
-    "flow_coverage": "flow-coverage-report -i 'src/**/*.js' -t html -t json -t text --threshold 90",
-    "build": "BABEL_ENV=production babel src --out-dir dist",
+    "flow_coverage": "flow-coverage-report -i 'src/main/**/*.js' -t html -t json -t text --threshold 90",
+    "build": "BABEL_ENV=production babel src/main --out-dir dist",
     "test_with_report": "npm test && yarn coveralls_push",
     "coveralls_push": "cat ./coverage/lcov.info | coveralls",
-    "doc": "documentation build src/** -f html -o docs",
+    "doc": "documentation build src/main/** -f html -o docs",
     "docs": "yarn doc"
   },
   "files": [
