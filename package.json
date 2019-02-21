@@ -5,7 +5,7 @@
   "main": "dist/index.js",
   "scripts": {
     "jest": "BABEL_ENV=test NODE_ENV=test jest --no-cache -w 1 --detectOpenHandles  --config jest.config.json",
-    "lint": "standard-flow src/**/*.js",
+    "lint": "standard-flow src/**/*.js --fix",
     "flow": "flow",
     "test": "yarn lint && yarn flow && yarn jest",
     "flow_coverage": "flow-coverage-report -i 'src/main/**/*.js' -t html -t json -t text --threshold 90",

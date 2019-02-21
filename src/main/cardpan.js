@@ -47,7 +47,7 @@ export const format: IFormatter = (value: IAny, opts?: ?IFormatCardPanOpts): IFo
 
   // American Express
   if (len === 15) {
-    return cleared.replace(/^(.{4})(.{6})(.{5})$/, '$1' + dl + '$2' + dl + '$3');
+    return cleared.replace(/^(.{4})(.{6})(.{5})$/, '$1' + dl + '$2' + dl + '$3')
   }
 
   // Visa, MasterCard, CUP, etc

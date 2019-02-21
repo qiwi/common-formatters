@@ -1,4 +1,4 @@
-import {formatMoney, MINUS_SIGN} from '../src'
+import {formatMoney, MINUS_SIGN} from '../main'
 
 describe('money', () => {
   it('properly formats input string with default delimiters', () => {

@@ -33,7 +33,6 @@ const DEFAULT_OPTS: IFormatPercentOpts = {
   multiplier: 100
 }
 
-
 export const format: IFormatter = (value: IAny, opts?: ?IFormatPercentOpts): IFormatted => {
   const _opts = {...DEFAULT_OPTS, ...opts}
   const _value = _opts.multiplier * +value

@@ -109,7 +109,7 @@ export const format: IFormatter = (value: IAny, opts?: ?IFormatPhoneOpts): IForm
     .join(blocksDelimiter)
 }
 
-export function parseBlocks(value: string, ...blocks: Array<?number>): Array<string> {
+export function parseBlocks (value: string, ...blocks: Array<?number>): Array<string> {
   const lengths = resolveBlockLengths(value.length, ...blocks)
   let pos = 0
 
@@ -120,7 +120,7 @@ export function parseBlocks(value: string, ...blocks: Array<?number>): Array<str
   })
 }
 
-export function resolveBlockLengths(entireLength: number, ...blocks: Array<?number>): Array<number> {
+export function resolveBlockLengths (entireLength: number, ...blocks: Array<?number>): Array<number> {
   const known= ((blocks.filter(v => typeof v === 'number'): Array<any>): Array<number>)
   const sum = known.reduce((m, v) => m + v, 0)
   const diff = entireLength - sum
@@ -144,7 +144,7 @@ export function resolveBlockLengths(entireLength: number, ...blocks: Array<?numb
   }
 }
 
-export function formatAreaCode(value: ?string, brackets: boolean): ?string {
+export function formatAreaCode (value: ?string, brackets: boolean): ?string {
   if (!value || !value.length) {
     return null
   }
@@ -154,7 +154,7 @@ export function formatAreaCode(value: ?string, brackets: boolean): ?string {
     : value
 }
 
-export function formatCountryCode(value: ?string, prefix: string): ?string {
+export function formatCountryCode (value: ?string, prefix: string): ?string {
   if (!value || !value.length) {
     return null
   }
@@ -162,7 +162,7 @@ export function formatCountryCode(value: ?string, prefix: string): ?string {
   return prefix + value
 }
 
-export function formatPhoneNumber(value: string, delimiter: string): ?string {
+export function formatPhoneNumber (value: string, delimiter: string): ?string {
   switch (value.length) {
     case 0:
       return null
@@ -180,7 +180,7 @@ export function formatPhoneNumber(value: string, delimiter: string): ?string {
   }
 }
 
-export function formatByMask(value: string, mask: string): string {
+export function formatByMask (value: string, mask: string): string {
   const targetLen = mask.replace(/[^*]/g, '').length
   const values = value.split('')
 

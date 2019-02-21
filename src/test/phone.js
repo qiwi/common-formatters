@@ -1,5 +1,5 @@
-import {formatPhone} from '../src'
-import {formatAreaCode, formatByMask, formatCountryCode, formatPhoneNumber, resolveBlockLengths, parseBlocks} from '../src/phone'
+import {formatPhone} from '../main'
+import {formatAreaCode, formatByMask, formatCountryCode, formatPhoneNumber, resolveBlockLengths, parseBlocks} from '../main/phone'
 
 describe('formatPhone', () => {
   it('throws error if input is empty', () => {

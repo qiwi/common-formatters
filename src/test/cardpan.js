@@ -1,4 +1,4 @@
-import {formatCardPan} from '../src'
+import {formatCardPan} from '../main'
 
 describe('cardpan', () => {
   it('asserts input to be card number', () => {

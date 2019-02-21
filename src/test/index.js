@@ -1,4 +1,4 @@
-import {formatNumber, formatMoney, formatCardPan, formatPhone, formatPercent} from '../dist'
+import {formatNumber, formatMoney, formatCardPan, formatPhone, formatPercent} from '../../dist'
 
 describe('lib', () => {
   it('exposes inner formatters', () => {
