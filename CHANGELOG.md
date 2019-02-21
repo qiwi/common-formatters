@@ -1,3 +1,10 @@
+## [0.6.2](https://github.com/qiwi/common-formatters/compare/v0.6.1...v0.6.2) (2019-02-21)
+
+
+### Bug Fixes
+
+* **package:** include typings to package ([63d08cb](https://github.com/qiwi/common-formatters/commit/63d08cb))
+
 ## [0.6.1](https://github.com/qiwi/common-formatters/compare/v0.6.0...v0.6.1) (2019-02-21)
 
 
