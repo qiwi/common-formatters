@@ -24,7 +24,8 @@
   "files": [
     "README.md",
     "CHANGELOG.md",
-    "dist"
+    "lib",
+    "typings"
   ],
   "repository": {
     "type": "git",
