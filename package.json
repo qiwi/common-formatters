@@ -7,8 +7,8 @@
   "scripts": {
     "clean": "rm -rf lib typings",
     "jest": "BABEL_ENV=test NODE_ENV=test jest --no-cache -w 1 --detectOpenHandles  --config jest.config.json",
-    "lint": "standard-flow src/**/*.js --fix",
-    "test": "yarn lint && yarn flow && yarn jest",
+    "lint": "tslint -c tslint.json src/**/*.js --fix",
+    "test": "yarn lint && yarn jest",
     "build": "yarn clean && yarn build_es5 && yarn build_es6 && yarn build_ts && yarn libdef",
     "build_es5": "mkdir -p lib/es5 && tsc -p tsconfig.json --target ES5 --outDir lib/es5",
     "build_es6": "mkdir -p lib/es6 && tsc -p tsconfig.json --target ES6 --outDir lib/es6",
@@ -73,6 +73,8 @@
     "semantic-release": "^15.13.3",
     "ts-jest": "^24.0.0",
     "tslib": "^1.9.3",
+    "tslint": "^5.12.1",
+    "tslint-config-standard": "^8.0.1",
     "typedoc": "^0.14.2",
     "typescript": "^3.3.3",
     "yargs": "^13.2.1"

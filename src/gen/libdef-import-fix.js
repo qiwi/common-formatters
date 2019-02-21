@@ -15,7 +15,6 @@ const IMPORT_MAIN_PATTERN = /\timport main = require\('(.+)'\);/g
 const IMPORT_ALL_LINE_PATTERN = /^\texport \* from '(.+)';$/
 const IMPORT_MAIN_LINE_PATTERN = /^\timport main = require\('(.+)'\);$/
 const IMPORT_DEPS_LINE_PATTERN = /^\timport { (.+) } from '(.+)';$/
-const REDUNDANT_DECLARE_EXPORT = /([\r\n\t\s]+)export ([^*{\t;]+[;{])/gi
 const BROKEN_MODULE_NAME = /(declare module '.+\/lib\/es5\/)[^/]*\/src\/main\/index'.+/
 const REFERENCE = /\/\/\/.+/
 
