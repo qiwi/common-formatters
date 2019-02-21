@@ -31,8 +31,8 @@ const DEFAULT_OPTS: IFormatNumberOpts = {
 
 export const validate: IValidator = (value: IAny) => !isNaN(value)
 
-export const MINUS_SIGN = '−'
-export const PLUS_SIGN = '+'
+export const MINUS_SIGN: string = '−'
+export const PLUS_SIGN: string = '+'
 
 /**
  * Number formatter.

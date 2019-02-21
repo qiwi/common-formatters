@@ -37,3 +37,4 @@ flow-typed/npm/
 
 .idea
 *.iml
+typings

@@ -7,7 +7,7 @@ import {
 
 import {clearNumericValue} from './util'
 
-export const RUSSIAN_MOBILE_PHONE = '+* *** ***-**-**'
+export const RUSSIAN_MOBILE_PHONE: string = '+* *** ***-**-**'
 
 /**
  * @interface IFormatPhoneOpts
