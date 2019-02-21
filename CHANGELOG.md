@@ -1,3 +1,10 @@
+## [0.6.1](https://github.com/qiwi/common-formatters/compare/v0.6.0...v0.6.1) (2019-02-21)
+
+
+### Bug Fixes
+
+* throw away bundles from repo ([96459b8](https://github.com/qiwi/common-formatters/commit/96459b8))
+
 # [0.6.0](https://github.com/qiwi/common-formatters/compare/v0.5.0...v0.6.0) (2019-02-21)
 
 
