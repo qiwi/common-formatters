@@ -19,7 +19,9 @@
     "libdeffix": "node -r esm ./src/gen/libdef-import-fix.js --flow=./typings/index.flow.js --dts=./typings/index.d.ts",
     "test_with_report": "yarn test && yarn coveralls_push",
     "coveralls_push": "cat ./coverage/lcov.info | coveralls",
-    "docs": "typedoc src/main --ignoreCompilerErrors || exit 0"
+    "docs": "typedoc src/main --ignoreCompilerErrors || exit 0",
+    "guide": "gh-pages -d docs -e . -m \"update docs v$npm_package_version\"",
+    "guide_ci": "gh-pages -d docs -e . -m \"update docs v$npm_package_version\" -r \"https://$GH_TOKEN@github.com/qiwi/common-formatters.git\""
   },
   "files": [
     "README.md",
@@ -62,6 +64,7 @@
     "eslint-plugin-typescript": "^0.14.0",
     "esm": "^3.2.5",
     "flowgen": "1.5.8",
+    "gh-pages": "^2.0.1",
     "jest": "^24.1.0",
     "lodash": "^4.17.11",
     "replace-in-file": "^3.4.3",
