@@ -10,6 +10,7 @@
   "moduleResolution": "node",
   "module": "commonjs",
   "hideGenerator": true,
-  "readme": "none",
-  "ignoreCompilerErrors": true
+  "readme": "./README.md",
+  "ignoreCompilerErrors": true,
+  "theme": "minimal"
 }
