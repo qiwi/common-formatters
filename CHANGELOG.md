@@ -1,3 +1,10 @@
+## [0.7.1](https://github.com/qiwi/common-formatters/compare/v0.7.0...v0.7.1) (2019-02-24)
+
+
+### Bug Fixes
+
+* **formatPercent:** repair default multiplier ([67f99ce](https://github.com/qiwi/common-formatters/commit/67f99ce))
+
 # [0.7.0](https://github.com/qiwi/common-formatters/compare/v0.6.2...v0.7.0) (2019-02-24)
 
 
