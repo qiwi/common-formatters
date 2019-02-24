@@ -64,5 +64,3 @@ export const validateCardPan: IValidator = (value: IAny): boolean => {
 
   return value.length > 14 && value.length < 20
 }
-
-export default formatCardPan

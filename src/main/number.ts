@@ -85,5 +85,3 @@ export const formatNumber: IFormatter = (value: IAny, opts?: IFormatNumberOpts):
     )
     .join(fractionDelimiter)
 }
-
-export default formatNumber

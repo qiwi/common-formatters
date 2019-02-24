@@ -3,7 +3,7 @@
  */
 
 import symbols from './symbols'
-import formatNumber from '../number'
+import { formatNumber } from '../number'
 import {
   IAny,
   IFormatted,
@@ -64,5 +64,3 @@ export const formatMoney: IFormatter = (value: IAny, opts?: IFormatMoneyOpts): I
 }
 
 export const getSymbol = (currencyCode?: string, fallback?: string): string | undefined => currencyCode && symbols[currencyCode] || fallback
-
-export default formatMoney

@@ -2,7 +2,7 @@
  * @module @qiwi/common-formatter
  */
 
-import formatNumber from './number'
+import { formatNumber } from './number'
 import {
   IAny,
   IFormatted,
@@ -43,5 +43,3 @@ export const formatPercent: IFormatter = (value: IAny, opts?: IFormatPercentOpts
 
   return formattedValue + '%'
 }
-
-export default formatPercent

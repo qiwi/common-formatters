@@ -197,5 +197,3 @@ export function formatByMask (value: string, mask: string): string {
     .map(v => v === '*' ? values.shift() : v)
     .join('')
 }
-
-export default formatPhone
