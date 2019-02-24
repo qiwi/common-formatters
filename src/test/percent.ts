@@ -21,4 +21,10 @@ describe('percent', () => {
     expect(formatPercent(-0.123, {fractionLength: 3, sign: true})).toBe(`${MINUS_SIGN}12,300%`)
     expect(formatPercent(0.123456, {fractionLength: 0})).toBe('12%')
   })
+
+  it('applies 100 as default multiplier', () => {
+    expect(formatPercent(1, {multiplier: null})).toBe('100,00%')
+    expect(formatPercent(1, {multiplier: undefined})).toBe('100,00%')
+    expect(formatPercent(1, {multiplier: 0})).toBe('100,00%')
+  })
 })
