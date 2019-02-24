@@ -25,14 +25,14 @@ export type IFormatNumberOpts = {
   sign?: boolean;
 }
 
-const DEFAULT_OPTS: IFormatNumberOpts = {
+export const FORMAT_NUMBER_DEFAULTS: IFormatNumberOpts = {
   digitDelimiter: ' ',
   fractionDelimiter: ',',
   strict: true,
   sign: false
 }
 
-export const validate: IValidator = (value: IAny) => !isNaN(value)
+export const validateNumber: IValidator = (value: IAny) => !isNaN(value)
 
 export const MINUS_SIGN: string = '−'
 export const PLUS_SIGN: string = '+'
@@ -52,10 +52,10 @@ export const PLUS_SIGN: string = '+'
  formatNumber(12345.6789, {digitDelimiter: ',', fractionDelimiter: '.'}) // '12,345.6789'
 
  */
-export const format: IFormatter = (value: IAny, opts?: IFormatNumberOpts): IFormatted => {
-  const {fractionDelimiter, fractionLength, digitDelimiter, strict, sign} = {...DEFAULT_OPTS, ...opts}
+export const formatNumber: IFormatter = (value: IAny, opts?: IFormatNumberOpts): IFormatted => {
+  const {fractionDelimiter, fractionLength, digitDelimiter, strict, sign} = {...FORMAT_NUMBER_DEFAULTS, ...opts}
 
-  if (strict && !validate(value)) {
+  if (strict && !validateNumber(value)) {
     throw new Error('formatNumber: invalid input')
   }
 
@@ -86,4 +86,4 @@ export const format: IFormatter = (value: IAny, opts?: IFormatNumberOpts): IForm
     .join(fractionDelimiter)
 }
 
-export default format
+export default formatNumber

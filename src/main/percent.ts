@@ -27,7 +27,7 @@ export type IFormatPercentOpts = {
   sign?: boolean;
 }
 
-const DEFAULT_OPTS: IFormatPercentOpts = {
+export const FORMAT_PERCENT_DEFAULTS: IFormatPercentOpts = {
   digitDelimiter: ' ',
   fractionDelimiter: ',',
   fractionLength: 2,
@@ -36,12 +36,12 @@ const DEFAULT_OPTS: IFormatPercentOpts = {
   multiplier: 100
 }
 
-export const format: IFormatter = (value: IAny, opts?: IFormatPercentOpts): IFormatted => {
-  const _opts = {...DEFAULT_OPTS, ...opts}
+export const formatPercent: IFormatter = (value: IAny, opts?: IFormatPercentOpts): IFormatted => {
+  const _opts = {...FORMAT_PERCENT_DEFAULTS, ...opts}
   const _value = (_opts.multiplier || 1) * +value
   const formattedValue = formatNumber(_value, _opts)
 
   return formattedValue + '%'
 }
 
-export default format
+export default formatPercent

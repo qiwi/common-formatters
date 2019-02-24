@@ -20,7 +20,7 @@ export type IFormatCardPanOpts = {
   digitDelimiter?: string;
 }
 
-const DEFAULT_OPTS: IFormatCardPanOpts = {
+export const FORMAT_CARDPAN_DEFAULTS: IFormatCardPanOpts = {
   strict: true,
   maskSymbol: '*',
   digitDelimiter: ' '
@@ -38,12 +38,12 @@ const DEFAULT_OPTS: IFormatCardPanOpts = {
  formatCardPan('1234567812345678', {digitDelimiter: '-'}) // '1234-5678-1234-5678'
 
  */
-export const format: IFormatter = (value: IAny, opts?: IFormatCardPanOpts): IFormatted => {
+export const formatCardPan: IFormatter = (value: IAny, opts?: IFormatCardPanOpts): IFormatted => {
   // NOTE pan may be masked
   const cleared = ('' + value).replace(/[^*\d]/g, '')
-  const {strict, digitDelimiter: dl} = Object.assign({}, DEFAULT_OPTS, opts)
+  const {strict, digitDelimiter: dl} = Object.assign({}, FORMAT_CARDPAN_DEFAULTS, opts)
 
-  if (strict && !validate(value)) {
+  if (strict && !validateCardPan(value)) {
     throw new Error('formatCardPan: invalid input')
   }
   const len = cleared.length
@@ -57,7 +57,7 @@ export const format: IFormatter = (value: IAny, opts?: IFormatCardPanOpts): IFor
   return cleared.replace(/(.{4})(?=(.){4,})/g, '$1' + dl)
 }
 
-export const validate: IValidator = (value: IAny): boolean => {
+export const validateCardPan: IValidator = (value: IAny): boolean => {
   if (typeof value !== 'string') {
     return false
   }
@@ -65,4 +65,4 @@ export const validate: IValidator = (value: IAny): boolean => {
   return value.length > 14 && value.length < 20
 }
 
-export default format
+export default formatCardPan

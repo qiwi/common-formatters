@@ -29,7 +29,7 @@ export type IFormatMoneyOpts = {
   sign?: boolean;
 }
 
-const DEFAULT_OPTS: IFormatMoneyOpts = {
+export const FORMAT_MONEY_DEFAULTS: IFormatMoneyOpts = {
   currencyCode: '',
   currencySymbol: '',
   digitDelimiter: ' ',
@@ -54,8 +54,8 @@ const DEFAULT_OPTS: IFormatMoneyOpts = {
  * @param {IFormatMoneyOpts} [opts]
  * @return {string}
  */
-export const format: IFormatter = (value: IAny, opts?: IFormatMoneyOpts): IFormatted => {
-  const _opts = {...DEFAULT_OPTS, ...opts}
+export const formatMoney: IFormatter = (value: IAny, opts?: IFormatMoneyOpts): IFormatted => {
+  const _opts = {...FORMAT_MONEY_DEFAULTS, ...opts}
   const formattedValue = formatNumber(value, _opts)
   const {currencySymbol, currencyCode} = _opts
   const symbol = getSymbol(currencyCode, currencySymbol)
@@ -65,4 +65,4 @@ export const format: IFormatter = (value: IAny, opts?: IFormatMoneyOpts): IForma
 
 export const getSymbol = (currencyCode?: string, fallback?: string): string | undefined => currencyCode && symbols[currencyCode] || fallback
 
-export default format
+export default formatMoney

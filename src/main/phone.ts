@@ -41,7 +41,7 @@ export type IFormatPhoneOpts = {
   mask?: string | null
 }
 
-const DEFAULT_OPTS: IFormatPhoneOpts = {
+export const FORMAT_PHONE_DEFAULTS: IFormatPhoneOpts = {
   strict: true,
   countryCodePrefix: '+',
   blocksDelimiter: ' ',
@@ -52,7 +52,7 @@ const DEFAULT_OPTS: IFormatPhoneOpts = {
   mask: null
 }
 
-export const validate: IValidator = (value: IAny) => !!value.length
+export const validatePhone: IValidator = (value: IAny) => !!value.length
 
 /**
  * Phone formatter.
@@ -77,7 +77,7 @@ export const validate: IValidator = (value: IAny) => !!value.length
  formatPhone('223344', {countryCode: '7', areaCode: '8443', areaBrackets: true, phoneNumberDelimiter: '_'}) // +7 (8443) 22_33_44
 
  */
-export const format: IFormatter = (value: IAny, opts?: IFormatPhoneOpts): IFormatted => {
+export const formatPhone: IFormatter = (value: IAny, opts?: IFormatPhoneOpts): IFormatted => {
   const cleared = clearNumericValue(value)
   const {
     strict,
@@ -91,9 +91,9 @@ export const format: IFormatter = (value: IAny, opts?: IFormatPhoneOpts): IForma
     countryCodePrefix,
     areaBrackets,
     mask
-  } = Object.assign({}, DEFAULT_OPTS, opts)
+  } = Object.assign({}, FORMAT_PHONE_DEFAULTS, opts)
 
-  if (strict && !validate(cleared)) {
+  if (strict && !validatePhone(cleared)) {
     throw new Error('formatPhone: invalid input')
   }
 
@@ -198,4 +198,4 @@ export function formatByMask (value: string, mask: string): string {
     .join('')
 }
 
-export default format
+export default formatPhone
