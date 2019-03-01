@@ -1,3 +1,10 @@
+# [0.8.0](https://github.com/qiwi/common-formatters/compare/v0.7.1...v0.8.0) (2019-03-01)
+
+
+### Features
+
+* add docs publishing ([1d2a8d2](https://github.com/qiwi/common-formatters/commit/1d2a8d2))
+
 ## [0.7.1](https://github.com/qiwi/common-formatters/compare/v0.7.0...v0.7.1) (2019-02-24)
 
 
