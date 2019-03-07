@@ -81,12 +81,11 @@
     "publish": [
       "@semantic-release/npm",
       "@semantic-release/github",
-      [
-        "@qiwi/semantic-release-gh-pages-plugin",
-        {
-          "msg": "docs updated"
-        }
-      ]
+      {
+        "path": "@qiwi/semantic-release-gh-pages-plugin",
+        "msg": "updated",
+        "branch": "docs"
+      }
     ]
   }
 }
