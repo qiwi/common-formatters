@@ -1,3 +1,10 @@
+## [0.7.4](https://github.com/qiwi/common-formatters/compare/v0.7.3...v0.7.4) (2019-03-07)
+
+
+### Performance Improvements
+
+* tech release ([caedf50](https://github.com/qiwi/common-formatters/commit/caedf50))
+
 ## [0.7.3](https://github.com/qiwi/common-formatters/compare/v0.7.2...v0.7.3) (2019-03-07)
 
 
