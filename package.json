@@ -40,7 +40,7 @@
   "license": "MIT",
   "dependencies": {},
   "devDependencies": {
-    "@qiwi/semantic-release-gh-pages-plugin": "^1.4.1",
+    "@qiwi/semantic-release-gh-pages-plugin": "^1.5.0",
     "@semantic-release/changelog": "^3.0.2",
     "@semantic-release/git": "^7.0.8",
     "@semantic-release/github": "^5.2.10",
@@ -52,7 +52,7 @@
     "esm": "^3.2.11",
     "flowgen": "1.6.0",
     "gh-pages": "^2.0.1",
-    "jest": "^24.1.0",
+    "jest": "^24.3.0",
     "lodash": "^4.17.11",
     "replace-in-file": "^3.4.3",
     "semantic-release": "^15.13.3",
