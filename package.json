@@ -1,6 +1,6 @@
 {
   "name": "@qiwi/common-formatters",
-  "version": "0.7.2",
+  "version": "0.7.3",
   "description": "Common string formatters",
   "main": "lib/es5/index.js",
   "types": "typings/index.d.ts",
@@ -81,9 +81,12 @@
     "publish": [
       "@semantic-release/npm",
       "@semantic-release/github",
-      ["@qiwi/semantic-release-gh-pages-plugin", {
-        "branch": "docs"
-      }]
+      [
+        "@qiwi/semantic-release-gh-pages-plugin",
+        {
+          "branch": "docs"
+        }
+      ]
     ]
   }
 }

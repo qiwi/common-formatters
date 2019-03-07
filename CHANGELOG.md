@@ -1,3 +1,10 @@
+## [0.7.3](https://github.com/qiwi/common-formatters/compare/v0.7.2...v0.7.3) (2019-03-07)
+
+
+### Performance Improvements
+
+* tech release ([dddecc3](https://github.com/qiwi/common-formatters/commit/dddecc3))
+
 ## [0.7.2](https://github.com/qiwi/common-formatters/compare/v0.7.1...v0.7.2) (2019-03-01)
 
 
