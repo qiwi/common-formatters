@@ -84,7 +84,7 @@
       [
         "@qiwi/semantic-release-gh-pages-plugin",
         {
-          "branch": "docs"
+          "msg": "docs updated"
         }
       ]
     ]
