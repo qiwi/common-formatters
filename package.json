@@ -40,21 +40,21 @@
   "license": "MIT",
   "dependencies": {},
   "devDependencies": {
-    "@qiwi/semantic-release-gh-pages-plugin": "^1.5.0",
+    "@qiwi/semantic-release-gh-pages-plugin": "^1.6.0",
     "@semantic-release/changelog": "^3.0.2",
     "@semantic-release/git": "^7.0.8",
     "@semantic-release/github": "^5.2.10",
     "@semantic-release/npm": "^5.1.4",
-    "@types/jest": "^24.0.9",
+    "@types/jest": "^24.0.11",
     "coveralls": "^3.0.3",
     "dts-generator": "^3.0.0",
     "eslint-plugin-typescript": "^0.14.0",
-    "esm": "^3.2.11",
-    "flowgen": "1.6.0",
+    "esm": "^3.2.14",
+    "flowgen": "1.7.0",
     "gh-pages": "^2.0.1",
-    "jest": "^24.3.0",
+    "jest": "^24.3.1",
     "lodash": "^4.17.11",
-    "replace-in-file": "^3.4.3",
+    "replace-in-file": "^3.4.4",
     "semantic-release": "^15.13.3",
     "ts-jest": "^24.0.0",
     "tslib": "^1.9.3",
@@ -82,9 +82,7 @@
       "@semantic-release/npm",
       "@semantic-release/github",
       {
-        "path": "@qiwi/semantic-release-gh-pages-plugin",
-        "msg": "updated",
-        "branch": "docs"
+        "path": "@qiwi/semantic-release-gh-pages-plugin"
       }
     ]
   }
