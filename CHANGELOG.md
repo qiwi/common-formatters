@@ -1,3 +1,10 @@
+## [0.7.8](https://github.com/qiwi/common-formatters/compare/v0.7.7...v0.7.8) (2019-05-27)
+
+
+### Bug Fixes
+
+* redeclare facade deps ([81f3f79](https://github.com/qiwi/common-formatters/commit/81f3f79))
+
 ## [0.7.7](https://github.com/qiwi/common-formatters/compare/v0.7.6...v0.7.7) (2019-05-27)
 
 
