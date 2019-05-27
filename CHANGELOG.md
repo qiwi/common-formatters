@@ -1,3 +1,10 @@
+## [0.7.7](https://github.com/qiwi/common-formatters/compare/v0.7.6...v0.7.7) (2019-05-27)
+
+
+### Bug Fixes
+
+* **build:** rebuild as commonjs ([9bbc101](https://github.com/qiwi/common-formatters/commit/9bbc101))
+
 ## [0.7.6](https://github.com/qiwi/common-formatters/compare/v0.7.5...v0.7.6) (2019-05-27)
 
 
