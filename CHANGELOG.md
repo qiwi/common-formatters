@@ -1,3 +1,10 @@
+## [0.7.6](https://github.com/qiwi/common-formatters/compare/v0.7.5...v0.7.6) (2019-05-27)
+
+
+### Bug Fixes
+
+* import money pack as dir ([c310561](https://github.com/qiwi/common-formatters/commit/c310561))
+
 ## [0.7.5](https://github.com/qiwi/common-formatters/compare/v0.7.4...v0.7.5) (2019-03-07)
 
 
