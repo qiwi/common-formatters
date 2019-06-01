@@ -1,4 +1,4 @@
-import {formatNumber, MINUS_SIGN} from '../main'
+import {formatNumber, MINUS_SIGN} from '../../main/ts'
 
 describe('number', () => {
   it('properly formats input string with default delimiters', () => {

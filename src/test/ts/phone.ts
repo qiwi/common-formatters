@@ -1,4 +1,4 @@
-import {formatPhone} from '../main'
+import {formatPhone} from '../../main/ts'
 import {
   formatAreaCode,
   formatByMask,
@@ -6,7 +6,7 @@ import {
   formatPhoneNumber,
   resolveBlockLengths,
   parseBlocks
-} from '../main/phone'
+} from '../../main/ts/phone'
 
 describe('formatPhone', () => {
   it('throws error if input is empty', () => {

@@ -3,13 +3,13 @@
   "testEnvironment": "node",
   "collectCoverage": true,
   "coveragePathIgnorePatterns": [
-    "<rootDir>/src/main/interface.js"
+    "<rootDir>/src/main/ts/interface.js"
   ],
   "collectCoverageFrom": [
-    "<rootDir>/src/main/**/*"
+    "<rootDir>/src/main/ts/**/*"
   ],
   "testMatch": [
-    "<rootDir>/src/test/**/*"
+    "<rootDir>/src/test/ts/**/*"
   ],
   "moduleFileExtensions": [
     "ts",

@@ -1,4 +1,4 @@
-import {formatPercent, MINUS_SIGN} from '../main'
+import {formatPercent, MINUS_SIGN} from '../../main/ts'
 
 describe('percent', () => {
   it('properly formats input string with default delimiters', () => {

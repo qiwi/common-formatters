@@ -14,7 +14,7 @@ import {
   FORMAT_CARDPAN_DEFAULTS,
   FORMAT_PHONE_DEFAULTS,
   FORMAT_PERCENT_DEFAULTS
-} from '../main'
+} from '../../main/ts'
 
 describe('lib', () => {
   it('exposes inner formatters', () => {
