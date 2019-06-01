@@ -3,11 +3,11 @@
  */
 
 import symbols from './symbols'
-import { formatNumber } from '../number'
+import {formatNumber} from '../number'
 import {
   IAny,
   IFormatted,
-  IFormatter
+  IFormatter,
 } from '../interface'
 
 /**
@@ -36,7 +36,7 @@ export const FORMAT_MONEY_DEFAULTS: IFormatMoneyOpts = {
   fractionDelimiter: ',',
   fractionLength: 2,
   strict: true,
-  sign: false
+  sign: false,
 }
 
 /**
@@ -44,11 +44,9 @@ export const FORMAT_MONEY_DEFAULTS: IFormatMoneyOpts = {
  * @name formatMoney
  * @type {Function}
  * @example
-
- formatMoney(12345.6789)   // '12 345,68'
- formatMoney(12300.45, {currencyCode: 'RUB', fractionDelimiter: '.'}) // '12 300.45 ₽'
- formatMoney(123.45, {currencySymbol: 'Foo'}) // '123,45 Foo'
-
+ * formatMoney(12345.6789)   // '12 345,68'
+ * formatMoney(12300.45, {currencyCode: 'RUB', fractionDelimiter: '.'}) // '12 300.45 ₽'
+ * formatMoney(123.45, {currencySymbol: 'Foo'}) // '123,45 Foo'
  * @public
  * @param {string} value
  * @param {IFormatMoneyOpts} [opts]
@@ -60,7 +58,7 @@ export const formatMoney: IFormatter = (value: IAny, opts?: IFormatMoneyOpts): I
   const {currencySymbol, currencyCode} = _opts
   const symbol = getSymbol(currencyCode, currencySymbol)
 
-  return formattedValue + (symbol ? ' ' + symbol: '')
+  return formattedValue + (symbol ? ' ' + symbol : '')
 }
 
 export const getSymbol = (currencyCode?: string, fallback?: string): string | undefined => currencyCode && symbols[currencyCode] || fallback

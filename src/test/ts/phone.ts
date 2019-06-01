@@ -5,7 +5,7 @@ import {
   formatCountryCode,
   formatPhoneNumber,
   resolveBlockLengths,
-  parseBlocks
+  parseBlocks,
 } from '../../main/ts/phone'
 
 describe('formatPhone', () => {

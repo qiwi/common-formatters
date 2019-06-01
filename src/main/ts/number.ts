@@ -6,7 +6,7 @@ import {
   IAny,
   IFormatted,
   IFormatter,
-  IValidator
+  IValidator,
 } from './interface'
 import {isNumericString} from './util'
 
@@ -29,7 +29,7 @@ export const FORMAT_NUMBER_DEFAULTS: IFormatNumberOpts = {
   digitDelimiter: ' ',
   fractionDelimiter: ',',
   strict: true,
-  sign: false
+  sign: false,
 }
 
 export const validateNumber: IValidator = (value: IAny) => !isNaN(value)
@@ -47,10 +47,8 @@ export const PLUS_SIGN: string = '+'
  * @param {IFormatNumberOpts} [opts]
  * @return {string}
  * @example
-
- formatNumber(12345.6789)  //  '12 345,6789'
- formatNumber(12345.6789, {digitDelimiter: ',', fractionDelimiter: '.'}) // '12,345.6789'
-
+ * formatNumber(12345.6789)  //  '12 345,6789'
+ * formatNumber(12345.6789, {digitDelimiter: ',', fractionDelimiter: '.'}) // '12,345.6789'
  */
 export const formatNumber: IFormatter = (value: IAny, opts?: IFormatNumberOpts): IFormatted => {
   const {fractionDelimiter, fractionLength, digitDelimiter, strict, sign} = {...FORMAT_NUMBER_DEFAULTS, ...opts}
@@ -63,7 +61,7 @@ export const formatNumber: IFormatter = (value: IAny, opts?: IFormatNumberOpts):
 
   const fl = fractionLength === undefined
     ? isNumericString(value)
-      ? Math.max(value.length - (num|0).toString().length - 1, 0)
+      ? Math.max(value.length - (num | 0).toString().length - 1, 0)
       : undefined
     : fractionLength
 
@@ -81,7 +79,7 @@ export const formatNumber: IFormatter = (value: IAny, opts?: IFormatNumberOpts):
     .split('.')
     .map((v, i) => i === 0
       ? v.replace(/(\d)(?=(\d{3})+(?!\d))/g, '$1' + digitDelimiter)
-      : v
+      : v,
     )
     .join(fractionDelimiter)
 }

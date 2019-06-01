@@ -7,7 +7,7 @@
   "scripts": {
     "clean": "rm -rf lib typings",
     "jest": "NODE_ENV=test jest --no-cache -w 1 --detectOpenHandles  --config jest.config.json",
-    "lint": "tslint -c tslint.json src/**/*.js --fix",
+    "lint": "tslint -c tslint.json src/**/*.ts --fix",
     "test": "yarn lint && yarn jest",
     "build": "yarn clean && yarn build_es5 && yarn build_es6 && yarn build_ts && yarn libdef && yarn docs",
     "build_es5": "mkdir -p lib/es5 && tsc -p tsconfig.json --target ES5 --outDir lib/es5",
@@ -59,6 +59,7 @@
     "ts-jest": "^24.0.2",
     "tslib": "^1.9.3",
     "tslint": "^5.17.0",
+    "tslint-config-qiwi": "^1.0.1",
     "tslint-config-standard": "^8.0.1",
     "typedoc": "^0.14.2",
     "typedoc-plugin-external-module-name": "^2.1.0",

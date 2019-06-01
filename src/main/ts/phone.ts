@@ -6,7 +6,7 @@ import {
   IAny,
   IFormatted,
   IFormatter,
-  IValidator
+  IValidator,
 } from './interface'
 
 import {clearNumericValue} from './util'
@@ -49,7 +49,7 @@ export const FORMAT_PHONE_DEFAULTS: IFormatPhoneOpts = {
   areaCodeLength: 0,
   areaBrackets: false,
   phoneNumberDelimiter: '-',
-  mask: null
+  mask: null,
 }
 
 export const validatePhone: IValidator = (value: IAny) => !!value.length
@@ -63,19 +63,17 @@ export const validatePhone: IValidator = (value: IAny) => !!value.length
  * @param {IFormatPhoneOpts} [opts]
  * @return {string}
  * @example
-
- // Basic cases
- formatPhone('1234567')     // 123-45-67
- formatPhone('12345678')    // 1234-5678
- formatPhone('12345')       // 1-23-45
- formatPhone('1234567890')  // 1234567890
-
- // Format by mask
- formatPhone('79876543210', {mask: '+* *** ***-**-**'}) // +7 987 654-32-10
-
- // Format by opts
- formatPhone('223344', {countryCode: '7', areaCode: '8443', areaBrackets: true, phoneNumberDelimiter: '_'}) // +7 (8443) 22_33_44
-
+ * // Basic cases
+ * formatPhone('1234567')     // 123-45-67
+ * formatPhone('12345678')    // 1234-5678
+ * formatPhone('12345')       // 1-23-45
+ * formatPhone('1234567890')  // 1234567890
+ *
+ * // Format by mask
+ * formatPhone('79876543210', {mask: '+* *** ***-**-**'}) // +7 987 654-32-10
+ *
+ * // Format by opts
+ * formatPhone('223344', {countryCode: '7', areaCode: '8443', areaBrackets: true, phoneNumberDelimiter: '_'}) // +7 (8443) 22_33_44
  */
 export const formatPhone: IFormatter = (value: IAny, opts?: IFormatPhoneOpts): IFormatted => {
   const cleared = clearNumericValue(value)
@@ -90,8 +88,8 @@ export const formatPhone: IFormatter = (value: IAny, opts?: IFormatPhoneOpts): I
     blocksDelimiter,
     countryCodePrefix,
     areaBrackets,
-    mask
-  } = Object.assign({}, FORMAT_PHONE_DEFAULTS, opts)
+    mask,
+  } = {...FORMAT_PHONE_DEFAULTS, ...opts}
 
   if (strict && !validatePhone(cleared)) {
     throw new Error('formatPhone: invalid input')
@@ -112,7 +110,7 @@ export const formatPhone: IFormatter = (value: IAny, opts?: IFormatPhoneOpts): I
     .join(blocksDelimiter)
 }
 
-export const parseBlocks = (value: string, ...blocks: Array<number|undefined>): Array<string> => {
+export const parseBlocks = (value: string, ...blocks: Array<number | undefined>): Array<string> => {
   const lengths = resolveBlockLengths(value.length, ...blocks)
   let pos = 0
 
@@ -123,7 +121,7 @@ export const parseBlocks = (value: string, ...blocks: Array<number|undefined>): 
   })
 }
 
-export const resolveBlockLengths = (entireLength: number, ...blocks: Array<number|undefined>): Array<number> => {
+export const resolveBlockLengths = (entireLength: number, ...blocks: Array<number | undefined>): Array<number> => {
   const known = blocks.filter(v => v !== undefined) as Array<number>
   const sum: number = known.reduce((m, v) => m + v, 0)
   const diff = entireLength - sum
@@ -147,7 +145,7 @@ export const resolveBlockLengths = (entireLength: number, ...blocks: Array<numbe
   }
 }
 
-export const formatAreaCode = (value?: string, brackets?: boolean): string | null=> {
+export const formatAreaCode = (value?: string, brackets?: boolean): string | null => {
   if (!value || !value.length) {
     return null
   }
@@ -165,7 +163,7 @@ export const formatCountryCode = (value?: string, prefix?: string): string | nul
   return prefix + value
 }
 
-export function formatPhoneNumber (value: string, delimiter: string = ''): string | null {
+export function formatPhoneNumber(value: string, delimiter: string = ''): string | null {
   switch (value.length) {
     case 0:
       return null
@@ -183,7 +181,7 @@ export function formatPhoneNumber (value: string, delimiter: string = ''): strin
   }
 }
 
-export function formatByMask (value: string, mask: string): string {
+export function formatByMask(value: string, mask: string): string {
   const targetLen = mask.replace(/[^*]/g, '').length
   const values = value.split('')
 

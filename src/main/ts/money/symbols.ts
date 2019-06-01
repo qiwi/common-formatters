@@ -11,7 +11,7 @@ export const SYMBOL_MAP: {[key: string]: string} = {
   RUB,
   USD,
   EUR,
-  KZT
+  KZT,
 }
 
 export default SYMBOL_MAP

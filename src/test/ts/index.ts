@@ -13,7 +13,7 @@ import {
   FORMAT_MONEY_DEFAULTS,
   FORMAT_CARDPAN_DEFAULTS,
   FORMAT_PHONE_DEFAULTS,
-  FORMAT_PERCENT_DEFAULTS
+  FORMAT_PERCENT_DEFAULTS,
 } from '../../main/ts'
 
 describe('lib', () => {
@@ -23,7 +23,7 @@ describe('lib', () => {
       formatNumber,
       formatCardPan,
       formatMoney,
-      formatPercent
+      formatPercent,
     ]
 
     cases.forEach(c => expect(c).toEqual(expect.any(Function)))
@@ -33,7 +33,7 @@ describe('lib', () => {
     const cases = [
       validateCardPan,
       validateNumber,
-      validatePhone
+      validatePhone,
     ]
 
     cases.forEach(c => expect(c).toEqual(expect.any(Function)))
@@ -45,7 +45,7 @@ describe('lib', () => {
       FORMAT_NUMBER_DEFAULTS,
       FORMAT_MONEY_DEFAULTS,
       FORMAT_CARDPAN_DEFAULTS,
-      FORMAT_PERCENT_DEFAULTS
+      FORMAT_PERCENT_DEFAULTS,
     ]
 
     cases.forEach(c => expect(c).toEqual(expect.any(Object)))

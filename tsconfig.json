@@ -24,6 +24,7 @@
   ],
   "exclude": [
     "node_modules",
-    "src/test"
+    "src/test",
+    "src/main/gen/*.js"
   ]
 }

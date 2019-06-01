@@ -6,7 +6,7 @@ import {
   IAny,
   IFormatted,
   IFormatter,
-  IValidator
+  IValidator,
 } from './interface'
 
 /**
@@ -23,7 +23,7 @@ export type IFormatCardPanOpts = {
 export const FORMAT_CARDPAN_DEFAULTS: IFormatCardPanOpts = {
   strict: true,
   maskSymbol: '*',
-  digitDelimiter: ' '
+  digitDelimiter: ' ',
 }
 
 /**
@@ -34,14 +34,12 @@ export const FORMAT_CARDPAN_DEFAULTS: IFormatCardPanOpts = {
  * @param {Object} [opts]
  * @returns {string}
  * @example
-
- formatCardPan('1234567812345678', {digitDelimiter: '-'}) // '1234-5678-1234-5678'
-
+ * formatCardPan('1234567812345678', {digitDelimiter: '-'}) // '1234-5678-1234-5678'
  */
 export const formatCardPan: IFormatter = (value: IAny, opts?: IFormatCardPanOpts): IFormatted => {
   // NOTE pan may be masked
   const cleared = ('' + value).replace(/[^*\d]/g, '')
-  const {strict, digitDelimiter: dl} = Object.assign({}, FORMAT_CARDPAN_DEFAULTS, opts)
+  const {strict, digitDelimiter: dl} = {...FORMAT_CARDPAN_DEFAULTS, ...opts}
 
   if (strict && !validateCardPan(value)) {
     throw new Error('formatCardPan: invalid input')
