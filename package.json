@@ -20,7 +20,7 @@
     "test_with_report": "yarn test && yarn coveralls_push",
     "coveralls_push": "cat ./coverage/lcov.info | coveralls",
     "docs": "typedoc src/main --ignoreCompilerErrors || exit 0",
-    "push_docs": "gh-pages -d docs -e . -m \"update docs v$npm_package_version\""
+    "docs:push": "gh-pages -d docs -e . -m \"update docs v$npm_package_version\""
   },
   "files": [
     "README.md",
@@ -38,33 +38,31 @@
   ],
   "author": "Anton Golub <a.golub@qiwi.com>",
   "license": "MIT",
-  "dependencies": {},
+  "dependencies": {
+    "tslib": "^1.10.0"
+  },
   "devDependencies": {
-    "@qiwi/semantic-release-gh-pages-plugin": "^1.10.1",
+    "@qiwi/semantic-release-gh-pages-plugin": "^1.10.5",
     "@semantic-release/changelog": "^3.0.4",
     "@semantic-release/git": "^7.0.16",
     "@semantic-release/github": "^5.4.2",
     "@semantic-release/npm": "^5.1.13",
-    "@types/jest": "^24.0.15",
-    "coveralls": "^3.0.5",
+    "@types/jest": "^24.0.18",
+    "coveralls": "^3.0.6",
     "dts-generator": "^3.0.0",
     "eslint-plugin-typescript": "^0.14.0",
     "esm": "^3.2.25",
-    "flowgen": "1.9.2",
-    "gh-pages": "^2.0.1",
-    "jest": "^24.8.0",
-    "lodash": "^4.17.14",
-    "replace-in-file": "^4.1.1",
-    "semantic-release": "^15.13.18",
+    "flowgen": "1.10.0",
+    "jest": "^24.9.0",
+    "lodash": "^4.17.15",
+    "replace-in-file": "^4.1.3",
+    "semantic-release": "^15.13.21",
     "ts-jest": "^24.0.2",
-    "tslib": "^1.10.0",
     "tslint": "^5.18.0",
-    "tslint-config-qiwi": "^1.1.0",
-    "tslint-config-standard": "^8.0.1",
-    "typedoc": "^0.15.0-0",
+    "tslint-config-qiwi": "^1.1.1",
+    "typedoc": "^0.15.0",
     "typedoc-plugin-external-module-name": "^2.1.0",
-    "typescript": "^3.5.3",
-    "yargs": "^13.3.0"
+    "typescript": "^3.5.3"
   },
   "release": {
     "branch": "master",
