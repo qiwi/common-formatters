@@ -2,7 +2,7 @@
   "name": "@qiwi/common-formatters",
   "version": "0.7.8",
   "description": "Common string formatters",
-  "main": "lib/es5/index.js",
+  "main": "target/es5/index.js",
   "types": "typings/index.d.ts",
   "scripts": {
     "clean": "rm -rf lib typings",
@@ -10,10 +10,10 @@
     "lint": "tslint -c tslint.json src/**/*.ts --fix",
     "test": "yarn lint && yarn jest",
     "build": "yarn clean && yarn build_es5 && yarn build_es6 && yarn build_ts && yarn libdef && yarn docs",
-    "build_es5": "mkdir -p lib/es5 && tsc -p tsconfig.json --target ES5 --outDir lib/es5",
-    "build_es6": "mkdir -p lib/es6 && tsc -p tsconfig.json --target ES6 --outDir lib/es6",
-    "build_ts": "cp -r src/main/ lib/ts/",
-    "dtsgen": "dts-generator --project ./ --out typings/index.d.ts --prefix @qiwi/common-formatters/lib/es5 --name @qiwi/common-formatters --main @qiwi/common-formatters/lib/es5/index --moduleResolution node",
+    "build_es5": "mkdir -p target/es5 && tsc -p tsconfig.json --target ES5 --outDir target/es5",
+    "build_es6": "mkdir -p target/es6 && tsc -p tsconfig.json --target ES6 --outDir target/es6",
+    "build_ts": "cp -r src/main/ target/ts/",
+    "dtsgen": "dts-generator --project ./ --out typings/index.d.ts --prefix @qiwi/common-formatters/target/es5 --name @qiwi/common-formatters --main @qiwi/common-formatters/target/es5/index --moduleResolution node",
     "flowgen": "flowgen typings/index.d.ts --output-file typings/index.flow.js",
     "libdef": "yarn dtsgen && yarn libdeffix && yarn flowgen",
     "libdeffix": "node -r esm ./src/gen/js/libdef-fix.js --flow=./typings/index.flow.js --dts=./typings/index.d.ts",
@@ -25,7 +25,7 @@
   "files": [
     "README.md",
     "CHANGELOG.md",
-    "lib",
+    "target",
     "typings"
   ],
   "repository": {
