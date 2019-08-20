@@ -1,3 +1,10 @@
+## [0.7.9](https://github.com/qiwi/common-formatters/compare/v0.7.8...v0.7.9) (2019-08-20)
+
+
+### Performance Improvements
+
+* **package:** deps revision ([bd6dc83](https://github.com/qiwi/common-formatters/commit/bd6dc83))
+
 ## [0.7.8](https://github.com/qiwi/common-formatters/compare/v0.7.7...v0.7.8) (2019-05-27)
 
 
