@@ -44,7 +44,7 @@
   },
   "devDependencies": {
     "@qiwi/semantic-release-gh-pages-plugin": "^1.15.6",
-    "@semantic-release/changelog": "^3.0.6",
+    "@semantic-release/changelog": "^5.0.0",
     "@semantic-release/git": "^7.0.18",
     "@semantic-release/github": "^5.5.5",
     "@semantic-release/npm": "^5.3.4",
