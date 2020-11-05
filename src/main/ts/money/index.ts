@@ -60,7 +60,7 @@ export const formatMoney: IFormatter = (value: IAny, opts?: IFormatMoneyOpts): I
   const {currencySymbol, currencyCode} = _opts
   const symbol = getSymbol(currencyCode, currencySymbol)
 
-  return formattedValue + (symbol ? ' ' + symbol : '')
+  return formattedValue + (symbol ? '\u00a0' + symbol : '')
 }
 
 export const getSymbol = (currencyCode?: string, fallback?: string): string | undefined => currencyCode && symbols[currencyCode] || fallback
