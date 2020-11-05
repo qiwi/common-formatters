@@ -10,11 +10,11 @@ describe('money', () => {
   })
 
   it('resolves curr symbol by curr code', () => {
-    expect(formatMoney(12300.45, {currencyCode: 'RUB', fractionDelimiter: '.'})).toEqual('12 300.45 ₽')
+    expect(formatMoney(12300.45, {currencyCode: 'RUB', fractionDelimiter: '.'})).toEqual('12 300.45\u00a0₽')
   })
 
   it('allows to override currency symbol', () => {
-    expect(formatMoney(123.45, {currencySymbol: 'Foo'})).toEqual('123,45 Foo')
+    expect(formatMoney(123.45, {currencySymbol: 'Foo'})).toEqual('123,45\u00a0Foo')
   })
 
   it('formats integers to money', () => {
