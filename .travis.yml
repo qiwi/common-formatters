@@ -35,7 +35,7 @@ jobs:
       os: linux
       node_js: 12
       install: skip
-      script: yarn test
+      script: yarn test:unit
       workspaces:
         use: linux-shared
     - <<: *test
@@ -44,6 +44,7 @@ jobs:
         - curl -L https://codeclimate.com/downloads/test-reporter/test-reporter-latest-linux-amd64 > ./cc-test-reporter
         - chmod +x ./cc-test-reporter
         - ./cc-test-reporter before-build
+      script: yarn test:report
       after_script:
         - ./cc-test-reporter format-coverage -t lcov ./coverage/lcov.info
         - ./cc-test-reporter after-build --exit-code $TRAVIS_TEST_RESULT
@@ -51,6 +52,7 @@ jobs:
       os: windows
       env: YARN_GPG=no
       node_js: 14
+      script: yarn test:unit
       workspaces:
         use: win-shared
 
