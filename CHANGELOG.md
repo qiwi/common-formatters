@@ -1,3 +1,10 @@
+# [1.1.0](https://github.com/qiwi/common-formatters/compare/v1.0.0...v1.1.0) (2020-11-05)
+
+
+### Features
+
+* removing zeros in fractional parts ([#65](https://github.com/qiwi/common-formatters/issues/65)) ([bfdc884](https://github.com/qiwi/common-formatters/commit/bfdc8841d7cb6547ffe9d6f5d913bea96f870ea4))
+
 # [1.0.0](https://github.com/qiwi/common-formatters/compare/v0.7.9...v1.0.0) (2020-11-05)
 
 
