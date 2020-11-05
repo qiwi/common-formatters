@@ -24,8 +24,13 @@ describe('money', () => {
   it('supports sing indication', () => {
     expect(formatMoney(12345, {sign: true})).toBe('+12 345,00')
   })
+
   it('supports negative', () => {
     expect(formatMoney(-1232245, {sign: true})).toBe(`${MINUS_SIGN}1 232 245,00`)
     expect(formatMoney(-12025)).toBe(`${MINUS_SIGN}12 025,00`)
+  })
+
+  it('supports removing zeros in fractional parts', () => {
+    expect(formatMoney(12345.00, {noZeros: true})).toBe('12 345')
   })
 })
