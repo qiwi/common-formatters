@@ -42,4 +42,8 @@ describe('number', () => {
     expect(formatNumber(12345.12345, {fractionLength: 2})).toBe('12 345,12')
     expect(formatNumber('12345.12345', {fractionLength: 10})).toBe('12 345,1234500000')
   })
+
+  it('supports removing zeros in fractional parts', () => {
+    expect(formatNumber(12345.00, {fractionRemoveZeros: true})).toBe('12 345')
+  })
 })
