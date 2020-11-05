@@ -1,19 +1,17 @@
 import {
-  formatNumber,
-  formatMoney,
+  FORMAT_CARDPAN_DEFAULTS,
+  FORMAT_MONEY_DEFAULTS,
+  FORMAT_NUMBER_DEFAULTS,
+  FORMAT_PERCENT_DEFAULTS,
+  FORMAT_PHONE_DEFAULTS,
   formatCardPan,
-  formatPhone,
+  formatMoney,
+  formatNumber,
   formatPercent,
-
+  formatPhone,
   validateCardPan,
   validateNumber,
   validatePhone,
-
-  FORMAT_NUMBER_DEFAULTS,
-  FORMAT_MONEY_DEFAULTS,
-  FORMAT_CARDPAN_DEFAULTS,
-  FORMAT_PHONE_DEFAULTS,
-  FORMAT_PERCENT_DEFAULTS,
 } from '../../main/ts'
 
 describe('lib', () => {

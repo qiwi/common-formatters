@@ -1,3 +1,20 @@
+# [1.0.0](https://github.com/qiwi/common-formatters/compare/v0.7.9...v1.0.0) (2020-11-05)
+
+
+### Features
+
+* non-breaking space between value and symbol ([015ece3](https://github.com/qiwi/common-formatters/commit/015ece3698eace858eab36d0df87c8a71d94f14c))
+
+
+### Performance Improvements
+
+* **package:** deps revision ([73d858f](https://github.com/qiwi/common-formatters/commit/73d858fb5f209cdab2a5baf4271ce5b413d11568))
+
+
+### BREAKING CHANGES
+
+* **package:** require tslib v2
+
 # [0.8.0](https://github.com/qiwi/common-formatters/compare/v0.7.9...v0.8.0) (2020-11-05)
 
 
