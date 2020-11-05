@@ -23,7 +23,7 @@ export type IFormatNumberOpts = {
   fractionLength?: number;
   strict?: boolean;
   sign?: boolean;
-  noZeros?: boolean;
+  fractionRemoveZeros?: boolean;
 }
 
 export const FORMAT_NUMBER_DEFAULTS: IFormatNumberOpts = {
@@ -31,7 +31,7 @@ export const FORMAT_NUMBER_DEFAULTS: IFormatNumberOpts = {
   fractionDelimiter: ',',
   strict: true,
   sign: false,
-  noZeros: false,
+  fractionRemoveZeros: false,
 }
 
 export const validateNumber: IValidator = (value: IAny) => !isNaN(value)
@@ -53,7 +53,7 @@ export const PLUS_SIGN: string = '+'
  * formatNumber(12345.6789, {digitDelimiter: ',', fractionDelimiter: '.'}) // '12,345.6789'
  */
 export const formatNumber: IFormatter = (value: IAny, opts?: IFormatNumberOpts): IFormatted => {
-  const {fractionDelimiter, fractionLength, digitDelimiter, strict, sign, noZeros} = {...FORMAT_NUMBER_DEFAULTS, ...opts}
+  const {fractionDelimiter, fractionLength, digitDelimiter, strict, sign, fractionRemoveZeros} = {...FORMAT_NUMBER_DEFAULTS, ...opts}
 
   if (strict && !validateNumber(value)) {
     throw new Error('formatNumber: invalid input')
@@ -81,7 +81,7 @@ export const formatNumber: IFormatter = (value: IAny, opts?: IFormatNumberOpts):
     .split('.')
     .map((v, i) => i === 0
       ? v.replace(/(\d)(?=(\d{3})+(?!\d))/g, '$1' + digitDelimiter)
-      : noZeros ? v.replace(/^0+$/, '') : v,
+      : fractionRemoveZeros ? v.replace(/^0+$/, '') : v,
     )
     .filter(v => v !== '')
     .join(fractionDelimiter)

@@ -31,6 +31,6 @@ describe('money', () => {
   })
 
   it('supports removing zeros in fractional parts', () => {
-    expect(formatMoney(12345.00, {noZeros: true})).toBe('12 345')
+    expect(formatMoney(12345.00, {fractionRemoveZeros: true})).toBe('12 345')
   })
 })

@@ -27,7 +27,7 @@ export type IFormatMoneyOpts = {
   currencyCode?: string;
   currencySymbol?: string;
   sign?: boolean;
-  noZeros?: boolean;
+  fractionRemoveZeros?: boolean;
 }
 
 export const FORMAT_MONEY_DEFAULTS: IFormatMoneyOpts = {
@@ -38,7 +38,7 @@ export const FORMAT_MONEY_DEFAULTS: IFormatMoneyOpts = {
   fractionLength: 2,
   strict: true,
   sign: false,
-  noZeros: false,
+  fractionRemoveZeros: false,
 }
 
 /**
