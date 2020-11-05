@@ -14,6 +14,7 @@ jobs:
         create:
           name: linux-shared
           paths:
+            - node_modules
             - target
             - flow-typed
             - typings
@@ -27,6 +28,7 @@ jobs:
           name: win-shared
           paths:
             - target
+            - node_modules
 
     - &test
       stage: test
