@@ -1,6 +1,6 @@
 {
   "name": "@qiwi/common-formatters",
-  "version": "0.7.8",
+  "version": "1.0.0",
   "description": "Common string formatters",
   "main": "target/es5/index.js",
   "types": "typings/index.d.ts",
