@@ -1,15 +1,15 @@
 {
   "compilerOptions": {
-    "rootDir": "./src/main/ts",
-    "baseUrl": "./src/main/ts",
+    "rootDir": "./src/main/ts/",
+    "baseUrl": "./src/main/ts/",
     "moduleResolution": "node",
-    "module": "commonjs",
+    "esModuleInterop": true,
     "target": "es5",
     "lib": [
       "esnext"
     ],
     "strict": true,
-    "sourceMap": true,
+    "sourceMap": false,
     "declaration": false,
     "noEmitHelpers": true,
     "noUnusedLocals": true,
@@ -17,14 +17,16 @@
     "importHelpers": true,
     "allowSyntheticDefaultImports": true,
     "skipLibCheck": true,
-    "resolveJsonModule": true
+    "resolveJsonModule": true,
+    "experimentalDecorators": true,
+
+    "incremental": true,
+    "tsBuildInfoFile": "./buildcache/.tsbuildinfo"
   },
   "include": [
-    "src/main/**/*"
+    "src/**/*"
   ],
   "exclude": [
-    "node_modules",
-    "src/test",
-    "src/main/gen/*.js"
+    "node_modules"
   ]
 }

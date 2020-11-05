@@ -2,10 +2,10 @@
  * @module @qiwi/common-formatter
  */
 
-export const RUB: string = '₽'
-export const USD: string = '$'
-export const EUR: string = '€'
-export const KZT: string = '₸'
+export const RUB = '₽'
+export const USD = '$'
+export const EUR = '€'
+export const KZT = '₸'
 
 export const SYMBOL_MAP: {[key: string]: string} = {
   RUB,

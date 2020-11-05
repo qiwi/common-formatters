@@ -38,7 +38,7 @@ export const FORMAT_CARDPAN_DEFAULTS: IFormatCardPanOpts = {
  */
 export const formatCardPan: IFormatter = (value: IAny, opts?: IFormatCardPanOpts): IFormatted => {
   // NOTE pan may be masked
-  const cleared = ('' + value).replace(/[^*\d]/g, '')
+  const cleared = ('' + value).replace(/[^\d*]/g, '')
   const {strict, digitDelimiter: dl} = {...FORMAT_CARDPAN_DEFAULTS, ...opts}
 
   if (strict && !validateCardPan(value)) {

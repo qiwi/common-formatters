@@ -2,13 +2,13 @@
  * @module @qiwi/common-formatter
  */
 
-import symbols from './symbols'
-import {formatNumber} from '../number'
 import {
   IAny,
   IFormatted,
   IFormatter,
 } from '../interface'
+import {formatNumber} from '../number'
+import symbols from './symbols'
 
 /**
  * @interface IFormatMoneyOpts
@@ -58,7 +58,7 @@ export const formatMoney: IFormatter = (value: IAny, opts?: IFormatMoneyOpts): I
   const {currencySymbol, currencyCode} = _opts
   const symbol = getSymbol(currencyCode, currencySymbol)
 
-  return formattedValue + (symbol ? '\u00a0' + symbol : '')
+  return formattedValue + (symbol ? '\u00A0' + symbol : '')
 }
 
 export const getSymbol = (currencyCode?: string, fallback?: string): string | undefined => currencyCode && symbols[currencyCode] || fallback

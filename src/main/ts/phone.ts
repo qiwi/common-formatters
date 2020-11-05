@@ -8,10 +8,9 @@ import {
   IFormatter,
   IValidator,
 } from './interface'
-
 import {clearNumericValue} from './util'
 
-export const RUSSIAN_MOBILE_PHONE: string = '+* *** ***-**-**'
+export const RUSSIAN_MOBILE_PHONE = '+* *** ***-**-**'
 
 /**
  * Phone formatter.
@@ -146,7 +145,7 @@ export const resolveBlockLengths = (entireLength: number, ...blocks: Array<numbe
 }
 
 export const formatAreaCode = (value?: string, brackets?: boolean): string | null => {
-  if (!value || !value.length) {
+  if (!value || value.length === 0) {
     return null
   }
 
@@ -156,14 +155,14 @@ export const formatAreaCode = (value?: string, brackets?: boolean): string | nul
 }
 
 export const formatCountryCode = (value?: string, prefix?: string): string | null => {
-  if (!value || !value.length) {
+  if (!value || value.length === 0) {
     return null
   }
 
   return prefix + value
 }
 
-export function formatPhoneNumber(value: string, delimiter: string = ''): string | null {
+export function formatPhoneNumber(value: string, delimiter = ''): string | null {
   switch (value.length) {
     case 0:
       return null
