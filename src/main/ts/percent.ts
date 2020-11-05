@@ -2,12 +2,12 @@
  * @module @qiwi/common-formatter
  */
 
-import {formatNumber} from './number'
 import {
   IAny,
   IFormatted,
   IFormatter,
 } from './interface'
+import {formatNumber} from './number'
 
 /**
  * Percent value formatter.
