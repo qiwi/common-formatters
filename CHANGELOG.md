@@ -1,3 +1,10 @@
+# [0.8.0](https://github.com/qiwi/common-formatters/compare/v0.7.9...v0.8.0) (2020-11-05)
+
+
+### Features
+
+* non-breaking space between value and symbol ([015ece3](https://github.com/qiwi/common-formatters/commit/015ece3))
+
 ## [0.7.9](https://github.com/qiwi/common-formatters/compare/v0.7.8...v0.7.9) (2019-08-20)
 
 
