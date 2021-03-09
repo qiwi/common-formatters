@@ -1,3 +1,15 @@
+# [1.2.0](https://github.com/qiwi/common-formatters/compare/v1.1.0...v1.2.0) (2021-03-09)
+
+
+### Bug Fixes
+
+* **package:** up deps, fix vuls ([1dc9060](https://github.com/qiwi/common-formatters/commit/1dc906086f0d6c59553d13496af54d537268b96a))
+
+
+### Features
+
+* **money:** provide currency positioning flag ([5627b72](https://github.com/qiwi/common-formatters/commit/5627b7299931afd668b49705b867b0580484617d))
+
 # [1.1.0](https://github.com/qiwi/common-formatters/compare/v1.0.0...v1.1.0) (2020-11-05)
 
 
