@@ -51,7 +51,7 @@ export const FORMAT_PHONE_DEFAULTS: IFormatPhoneOpts = {
   mask: null,
 }
 
-export const validatePhone: IValidator = (value: IAny) => !!value.length
+export const validatePhone: IValidator = (value: IAny) => value.length > 0
 
 /**
  * Phone formatter.
