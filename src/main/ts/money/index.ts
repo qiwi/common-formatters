@@ -2,12 +2,8 @@
  * @module @qiwi/common-formatter
  */
 
-import {
-  IAny,
-  IFormatted,
-  IFormatter,
-} from '../interface'
-import {formatNumber} from '../number'
+import { IAny, IFormatted, IFormatter } from '../interface'
+import { formatNumber } from '../number'
 import symbols from './symbols'
 
 /**
@@ -60,10 +56,18 @@ export const FORMAT_MONEY_DEFAULTS: IFormatMoneyOpts = {
  * @param {IFormatMoneyOpts} [opts]
  * @return {string}
  */
-export const formatMoney: IFormatter = (value: IAny, opts?: IFormatMoneyOpts): IFormatted => {
-  const _opts = {...FORMAT_MONEY_DEFAULTS, ...opts}
+export const formatMoney: IFormatter = (
+  value: IAny,
+  opts?: IFormatMoneyOpts,
+): IFormatted => {
+  const _opts = { ...FORMAT_MONEY_DEFAULTS, ...opts }
   const formattedValue = formatNumber(value, _opts)
-  const {currencySymbol, currencyCode, currencyPosition, currencySpacer} = _opts
+  const {
+    currencySymbol,
+    currencyCode,
+    currencyPosition,
+    currencySpacer,
+  } = _opts
   const symbol = getSymbol(currencyCode, currencySymbol)
   const spacer = currencySpacer || getSpacer(currencyCode)
   const pos = currencyPosition || getPosition(currencyCode)
@@ -77,9 +81,13 @@ export const formatMoney: IFormatter = (value: IAny, opts?: IFormatMoneyOpts): I
     : `${symbol}${spacer}${formattedValue}`
 }
 
+const getSpacer = (currencyCode?: string): string =>
+  currencyCode === 'USD' ? zwsp : nbsp
 
-const getSpacer = (currencyCode?: string): string => currencyCode === 'USD' ? zwsp : nbsp
+const getPosition = (currencyCode?: string): 'left' | 'right' =>
+  currencyCode === 'USD' ? 'left' : 'right'
 
-const getPosition = (currencyCode?: string): 'left' | 'right' => currencyCode === 'USD' ? 'left' : 'right'
-
-const getSymbol = (currencyCode?: string, fallback?: string): string | undefined => currencyCode && symbols[currencyCode] || fallback
+const getSymbol = (
+  currencyCode?: string,
+  fallback?: string,
+): string | undefined => (currencyCode && symbols[currencyCode]) || fallback

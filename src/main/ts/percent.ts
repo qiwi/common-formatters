@@ -2,12 +2,8 @@
  * @module @qiwi/common-formatter
  */
 
-import {
-  IAny,
-  IFormatted,
-  IFormatter,
-} from './interface'
-import {formatNumber} from './number'
+import { IAny, IFormatted, IFormatter } from './interface'
+import { formatNumber } from './number'
 
 /**
  * Percent value formatter.
@@ -19,12 +15,12 @@ import {formatNumber} from './number'
  * @property {boolean} sign forces sign indication
  */
 export type IFormatPercentOpts = {
-  strict?: boolean;
-  digitDelimiter?: string;
-  fractionDelimiter?: string;
-  fractionLength?: number;
-  multiplier?: number;
-  sign?: boolean;
+  strict?: boolean
+  digitDelimiter?: string
+  fractionDelimiter?: string
+  fractionLength?: number
+  multiplier?: number
+  sign?: boolean
 }
 const MULTIPLIER = 100
 export const FORMAT_PERCENT_DEFAULTS: IFormatPercentOpts = {
@@ -36,8 +32,11 @@ export const FORMAT_PERCENT_DEFAULTS: IFormatPercentOpts = {
   multiplier: MULTIPLIER,
 }
 
-export const formatPercent: IFormatter = (value: IAny, opts?: IFormatPercentOpts): IFormatted => {
-  const _opts = {...FORMAT_PERCENT_DEFAULTS, ...opts}
+export const formatPercent: IFormatter = (
+  value: IAny,
+  opts?: IFormatPercentOpts,
+): IFormatted => {
+  const _opts = { ...FORMAT_PERCENT_DEFAULTS, ...opts }
   const _value = (_opts.multiplier || MULTIPLIER) * value
   const formattedValue = formatNumber(_value, _opts)
 

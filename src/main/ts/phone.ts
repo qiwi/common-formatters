@@ -2,13 +2,8 @@
  * @module @qiwi/common-formatter
  */
 
-import {
-  IAny,
-  IFormatted,
-  IFormatter,
-  IValidator,
-} from './interface'
-import {clearNumericValue} from './util'
+import { IAny, IFormatted, IFormatter, IValidator } from './interface'
+import { clearNumericValue } from './util'
 
 export const RUSSIAN_MOBILE_PHONE = '+* *** ***-**-**'
 
@@ -27,16 +22,16 @@ export const RUSSIAN_MOBILE_PHONE = '+* *** ***-**-**'
  * @property {string} mask
  */
 export type IFormatPhoneOpts = {
-  strict?: boolean;
-  blocksDelimiter?: string;
-  countryCode?: string;
-  areaCode?: string;
-  areaBrackets?: boolean;
-  countryCodePrefix?: string;
-  countryCodeLength?: number;
-  areaCodeLength?: number;
-  phoneNumberLength?: number;
-  phoneNumberDelimiter?: string;
+  strict?: boolean
+  blocksDelimiter?: string
+  countryCode?: string
+  areaCode?: string
+  areaBrackets?: boolean
+  countryCodePrefix?: string
+  countryCodeLength?: number
+  areaCodeLength?: number
+  phoneNumberLength?: number
+  phoneNumberDelimiter?: string
   mask?: string | null
 }
 
@@ -74,7 +69,10 @@ export const validatePhone: IValidator = (value: IAny) => value.length > 0
  * // Format by opts
  * formatPhone('223344', {countryCode: '7', areaCode: '8443', areaBrackets: true, phoneNumberDelimiter: '_'}) // +7 (8443) 22_33_44
  */
-export const formatPhone: IFormatter = (value: IAny, opts?: IFormatPhoneOpts): IFormatted => {
+export const formatPhone: IFormatter = (
+  value: IAny,
+  opts?: IFormatPhoneOpts,
+): IFormatted => {
   const cleared = clearNumericValue(value)
   const {
     strict,
@@ -88,7 +86,7 @@ export const formatPhone: IFormatter = (value: IAny, opts?: IFormatPhoneOpts): I
     countryCodePrefix,
     areaBrackets,
     mask,
-  } = {...FORMAT_PHONE_DEFAULTS, ...opts}
+  } = { ...FORMAT_PHONE_DEFAULTS, ...opts }
 
   if (strict && !validatePhone(cleared)) {
     throw new Error('formatPhone: invalid input')
@@ -98,18 +96,24 @@ export const formatPhone: IFormatter = (value: IAny, opts?: IFormatPhoneOpts): I
     return formatByMask(cleared, mask)
   }
 
-  const [rCountry, rArea, rPhone] = parseBlocks(cleared, countryCodeLength, areaCodeLength, phoneNumberLength)
+  const [rCountry, rArea, rPhone] = parseBlocks(
+    cleared,
+    countryCodeLength,
+    areaCodeLength,
+    phoneNumberLength,
+  )
 
   const country = formatCountryCode(rCountry || countryCode, countryCodePrefix)
   const area = formatAreaCode(rArea || areaCode, areaBrackets)
   const phone = formatPhoneNumber(rPhone, phoneNumberDelimiter)
 
-  return [country, area, phone]
-    .filter(v => v !== null)
-    .join(blocksDelimiter)
+  return [country, area, phone].filter((v) => v !== null).join(blocksDelimiter)
 }
 
-export const parseBlocks = (value: string, ...blocks: Array<number | undefined>): Array<string> => {
+export const parseBlocks = (
+  value: string,
+  ...blocks: Array<number | undefined>
+): Array<string> => {
   const lengths = resolveBlockLengths(value.length, ...blocks)
   let pos = 0
 
@@ -120,8 +124,11 @@ export const parseBlocks = (value: string, ...blocks: Array<number | undefined>)
   })
 }
 
-export const resolveBlockLengths = (entireLength: number, ...blocks: Array<number | undefined>): Array<number> => {
-  const known = blocks.filter(v => v !== undefined) as Array<number>
+export const resolveBlockLengths = (
+  entireLength: number,
+  ...blocks: Array<number | undefined>
+): Array<number> => {
+  const known = blocks.filter((v) => v !== undefined) as Array<number>
   const sum: number = known.reduce((m, v) => m + v, 0)
   const diff = entireLength - sum
 
@@ -137,24 +144,28 @@ export const resolveBlockLengths = (entireLength: number, ...blocks: Array<numbe
       if (diff < 0) {
         throw new Error('formatPhone: invalid opts')
       }
-      return blocks.map(v => v === null || v === undefined ? diff : v)
+      return blocks.map((v) => (v === null || v === undefined ? diff : v))
 
     default:
       throw new Error('formatPhone: invalid opts')
   }
 }
 
-export const formatAreaCode = (value?: string, brackets?: boolean): string | null => {
+export const formatAreaCode = (
+  value?: string,
+  brackets?: boolean,
+): string | null => {
   if (!value || value.length === 0) {
     return null
   }
 
-  return brackets
-    ? '(' + value + ')'
-    : value
+  return brackets ? '(' + value + ')' : value
 }
 
-export const formatCountryCode = (value?: string, prefix?: string): string | null => {
+export const formatCountryCode = (
+  value?: string,
+  prefix?: string,
+): string | null => {
   if (!value || value.length === 0) {
     return null
   }
@@ -162,7 +173,10 @@ export const formatCountryCode = (value?: string, prefix?: string): string | nul
   return prefix + value
 }
 
-export function formatPhoneNumber(value: string, delimiter = ''): string | null {
+export function formatPhoneNumber(
+  value: string,
+  delimiter = '',
+): string | null {
   switch (value.length) {
     case 0:
       return null
@@ -170,7 +184,10 @@ export function formatPhoneNumber(value: string, delimiter = ''): string | null 
     case 5:
     case 6:
     case 7:
-      return value.replace(/(.{1,3})(.{2})(.{2})/, '$1' + delimiter + '$2' + delimiter + '$3')
+      return value.replace(
+        /(.{1,3})(.{2})(.{2})/,
+        '$1' + delimiter + '$2' + delimiter + '$3',
+      )
 
     case 8:
       return value.slice(0, 4) + delimiter + value.slice(4, 8)
@@ -191,6 +208,6 @@ export function formatByMask(value: string, mask: string): string {
   // TODO optimize performance
   return mask
     .split('')
-    .map(v => v === '*' ? values.shift() : v)
+    .map((v) => (v === '*' ? values.shift() : v))
     .join('')
 }

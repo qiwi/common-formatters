@@ -1,4 +1,4 @@
-import {formatNumber, MINUS_SIGN} from '../../main/ts'
+import { formatNumber, MINUS_SIGN } from '../../main/ts'
 
 describe('number', () => {
   it('properly formats input string with default delimiters', () => {
@@ -6,7 +6,9 @@ describe('number', () => {
   })
 
   it('supports custom delimiters', () => {
-    expect(formatNumber(12345.6789, {digitDelimiter: ',', fractionDelimiter: '.'})).toEqual('12,345.6789')
+    expect(
+      formatNumber(12345.6789, { digitDelimiter: ',', fractionDelimiter: '.' }),
+    ).toEqual('12,345.6789')
   })
 
   it('asserts input in strict mode', () => {
@@ -24,7 +26,7 @@ describe('number', () => {
   it('converts falsy types to 0', () => {
     const cases = [false, null, '']
 
-    cases.forEach(v => {
+    cases.forEach((v) => {
       expect(formatNumber(v)).toBe('0')
     })
   })
@@ -35,15 +37,17 @@ describe('number', () => {
   })
 
   it('supports forced sign indication', () => {
-    expect(formatNumber(12345, {sign: true})).toBe('+12 345')
+    expect(formatNumber(12345, { sign: true })).toBe('+12 345')
   })
 
   it('supports fraction length declaration', () => {
-    expect(formatNumber(12345.12345, {fractionLength: 2})).toBe('12 345,12')
-    expect(formatNumber('12345.12345', {fractionLength: 10})).toBe('12 345,1234500000')
+    expect(formatNumber(12345.12345, { fractionLength: 2 })).toBe('12 345,12')
+    expect(formatNumber('12345.12345', { fractionLength: 10 })).toBe(
+      '12 345,1234500000',
+    )
   })
 
   it('supports removing zeros in fractional parts', () => {
-    expect(formatNumber(12345.00, {fractionRemoveZeros: true})).toBe('12 345')
+    expect(formatNumber(12345.0, { fractionRemoveZeros: true })).toBe('12 345')
   })
 })

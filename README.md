@@ -25,12 +25,16 @@ What can be said in defense? Smaller is better.
     
     // Available opts
     {
-      digitDelimiter: string;
-      fractionDelimiter: string;
-      fractionLength: number;
-      currencyCode: string;
-      currencySymbol: string;
-      sign: boolean;
+      strict?: boolean
+      digitDelimiter?: string
+      fractionDelimiter?: string
+      fractionLength?: number
+      currencyCode?: string
+      currencySymbol?: string
+      currencyPosition?: 'left' | 'right'
+      currencySpacer?: string
+      sign?: boolean
+      fractionRemoveZeros?: boolean
     }
 ```
 
