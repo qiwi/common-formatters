@@ -2,12 +2,7 @@
  * @module @qiwi/common-formatter
  */
 
-import {
-  IAny,
-  IFormatted,
-  IFormatter,
-  IValidator,
-} from './interface'
+import { IAny, IFormatted, IFormatter, IValidator } from './interface'
 
 /**
  * @interface IFormatCardPanOpts
@@ -15,9 +10,9 @@ import {
  * @property {string} maskSymbol
  */
 export type IFormatCardPanOpts = {
-  strict?: boolean;
-  maskSymbol?: string;
-  digitDelimiter?: string;
+  strict?: boolean
+  maskSymbol?: string
+  digitDelimiter?: string
 }
 
 export const FORMAT_CARDPAN_DEFAULTS: IFormatCardPanOpts = {
@@ -36,10 +31,13 @@ export const FORMAT_CARDPAN_DEFAULTS: IFormatCardPanOpts = {
  * @example
  * formatCardPan('1234567812345678', {digitDelimiter: '-'}) // '1234-5678-1234-5678'
  */
-export const formatCardPan: IFormatter = (value: IAny, opts?: IFormatCardPanOpts): IFormatted => {
+export const formatCardPan: IFormatter = (
+  value: IAny,
+  opts?: IFormatCardPanOpts,
+): IFormatted => {
   // NOTE pan may be masked
   const cleared = ('' + value).replace(/[^\d*]/g, '')
-  const {strict, digitDelimiter: dl} = {...FORMAT_CARDPAN_DEFAULTS, ...opts}
+  const { strict, digitDelimiter: dl } = { ...FORMAT_CARDPAN_DEFAULTS, ...opts }
 
   if (strict && !validateCardPan(value)) {
     throw new Error('formatCardPan: invalid input')

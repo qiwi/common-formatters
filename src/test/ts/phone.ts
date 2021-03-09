@@ -1,4 +1,4 @@
-import {formatPhone} from '../../main/ts'
+import { formatPhone } from '../../main/ts'
 import {
   formatAreaCode,
   formatByMask,
@@ -14,26 +14,38 @@ describe('formatPhone', () => {
   })
 
   it('prefers mask-based flow', () => {
-    expect(formatPhone('1234', {mask: '** **'})).toEqual('12 34')
+    expect(formatPhone('1234', { mask: '** **' })).toEqual('12 34')
   })
 
   it('allows optional country and area codes', () => {
-    expect(formatPhone('1234', {countryCode: '1', areaCode: '555'})).toEqual('+1 555 1234')
+    expect(formatPhone('1234', { countryCode: '1', areaCode: '555' })).toEqual(
+      '+1 555 1234',
+    )
   })
 
   it('parsed blocks has priority', () => {
-    expect(formatPhone('1234', {countryCodeLength: 1, countryCode: '2', areaCodeLength: 1})).toEqual('+1 2 34')
+    expect(
+      formatPhone('1234', {
+        countryCodeLength: 1,
+        countryCode: '2',
+        areaCodeLength: 1,
+      }),
+    ).toEqual('+1 2 34')
   })
 })
 
 describe('inner', () => {
   describe('mask', () => {
     it('formats phone by specified mask', () => {
-      expect(formatByMask('12345678', '** **-**    **')).toEqual('12 34-56    78')
+      expect(formatByMask('12345678', '** **-**    **')).toEqual(
+        '12 34-56    78',
+      )
     })
 
     it('throws error on length mismatch', () => {
-      expect(() => formatByMask('123', '*** **')).toThrow('formatPhone: input does not matches target mask')
+      expect(() => formatByMask('123', '*** **')).toThrow(
+        'formatPhone: input does not matches target mask',
+      )
     })
   })
 

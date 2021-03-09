@@ -7,7 +7,7 @@ export const USD = '$'
 export const EUR = '€'
 export const KZT = '₸'
 
-export const SYMBOL_MAP: {[key: string]: string} = {
+export const SYMBOL_MAP: { [key: string]: string } = {
   RUB,
   USD,
   EUR,

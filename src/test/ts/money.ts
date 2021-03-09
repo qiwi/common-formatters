@@ -1,4 +1,4 @@
-import {formatMoney, MINUS_SIGN} from '../../main/ts'
+import { formatMoney, MINUS_SIGN } from '../../main/ts'
 
 describe('money', () => {
   it('properly formats input string with default delimiters', () => {
@@ -6,19 +6,27 @@ describe('money', () => {
   })
 
   it('supports custom delimiters', () => {
-    expect(formatMoney(12345.68, {digitDelimiter: ',', fractionDelimiter: '.'})).toEqual('12,345.68')
+    expect(
+      formatMoney(12345.68, { digitDelimiter: ',', fractionDelimiter: '.' }),
+    ).toEqual('12,345.68')
   })
 
   it('resolves curr symbol by curr code', () => {
-    expect(formatMoney(12300.45, {currencyCode: 'RUB', fractionDelimiter: '.'})).toEqual('12 300.45\u00A0₽')
+    expect(
+      formatMoney(12300.45, { currencyCode: 'RUB', fractionDelimiter: '.' }),
+    ).toEqual('12 300.45\u00A0₽')
   })
 
   it('resolves curr symbol & currency pos by curr code', () => {
-    expect(formatMoney(12300.45, {currencyCode: 'USD', fractionDelimiter: '.'})).toEqual('$\u200B12 300.45')
+    expect(
+      formatMoney(12300.45, { currencyCode: 'USD', fractionDelimiter: '.' }),
+    ).toEqual('$\u200B12 300.45')
   })
 
   it('allows to override currency symbol', () => {
-    expect(formatMoney(123.45, {currencySymbol: 'Foo'})).toEqual('123,45\u00A0Foo')
+    expect(formatMoney(123.45, { currencySymbol: 'Foo' })).toEqual(
+      '123,45\u00A0Foo',
+    )
   })
 
   it('formats integers to money', () => {
@@ -26,15 +34,17 @@ describe('money', () => {
   })
 
   it('supports sing indication', () => {
-    expect(formatMoney(12345, {sign: true})).toBe('+12 345,00')
+    expect(formatMoney(12345, { sign: true })).toBe('+12 345,00')
   })
 
   it('supports negative', () => {
-    expect(formatMoney(-1232245, {sign: true})).toBe(`${MINUS_SIGN}1 232 245,00`)
+    expect(formatMoney(-1232245, { sign: true })).toBe(
+      `${MINUS_SIGN}1 232 245,00`,
+    )
     expect(formatMoney(-12025)).toBe(`${MINUS_SIGN}12 025,00`)
   })
 
   it('supports removing zeros in fractional parts', () => {
-    expect(formatMoney(12345.00, {fractionRemoveZeros: true})).toBe('12 345')
+    expect(formatMoney(12345.0, { fractionRemoveZeros: true })).toBe('12 345')
   })
 })

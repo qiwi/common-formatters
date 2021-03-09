@@ -24,17 +24,13 @@ describe('lib', () => {
       formatPercent,
     ]
 
-    cases.forEach(c => expect(c).toEqual(expect.any(Function)))
+    cases.forEach((c) => expect(c).toEqual(expect.any(Function)))
   })
 
   it('exposes inner validators', () => {
-    const cases = [
-      validateCardPan,
-      validateNumber,
-      validatePhone,
-    ]
+    const cases = [validateCardPan, validateNumber, validatePhone]
 
-    cases.forEach(c => expect(c).toEqual(expect.any(Function)))
+    cases.forEach((c) => expect(c).toEqual(expect.any(Function)))
   })
 
   it('exposes inner default opts', () => {
@@ -46,6 +42,6 @@ describe('lib', () => {
       FORMAT_PERCENT_DEFAULTS,
     ]
 
-    cases.forEach(c => expect(c).toEqual(expect.any(Object)))
+    cases.forEach((c) => expect(c).toEqual(expect.any(Object)))
   })
 })

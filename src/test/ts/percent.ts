@@ -1,4 +1,4 @@
-import {formatPercent, MINUS_SIGN} from '../../main/ts'
+import { formatPercent, MINUS_SIGN } from '../../main/ts'
 
 describe('percent', () => {
   it('properly formats input string with default delimiters', () => {
@@ -6,7 +6,9 @@ describe('percent', () => {
   })
 
   it('supports custom delimiters', () => {
-    expect(formatPercent(123.4568, {digitDelimiter: ',', fractionDelimiter: '.'})).toEqual('12,345.68%')
+    expect(
+      formatPercent(123.4568, { digitDelimiter: ',', fractionDelimiter: '.' }),
+    ).toEqual('12,345.68%')
   })
 
   it('formats integers', () => {
@@ -14,17 +16,19 @@ describe('percent', () => {
   })
 
   it('supports sing indication', () => {
-    expect(formatPercent(12345, {sign: true})).toBe('+1 234 500,00%')
+    expect(formatPercent(12345, { sign: true })).toBe('+1 234 500,00%')
   })
 
   it('supports fraction length customization', () => {
-    expect(formatPercent(-0.123, {fractionLength: 3, sign: true})).toBe(`${MINUS_SIGN}12,300%`)
-    expect(formatPercent(0.123456, {fractionLength: 0})).toBe('12%')
+    expect(formatPercent(-0.123, { fractionLength: 3, sign: true })).toBe(
+      `${MINUS_SIGN}12,300%`,
+    )
+    expect(formatPercent(0.123456, { fractionLength: 0 })).toBe('12%')
   })
 
   it('applies 100 as default multiplier', () => {
-    expect(formatPercent(1, {multiplier: null})).toBe('100,00%')
-    expect(formatPercent(1, {multiplier: undefined})).toBe('100,00%')
-    expect(formatPercent(1, {multiplier: 0})).toBe('100,00%')
+    expect(formatPercent(1, { multiplier: null })).toBe('100,00%')
+    expect(formatPercent(1, { multiplier: undefined })).toBe('100,00%')
+    expect(formatPercent(1, { multiplier: 0 })).toBe('100,00%')
   })
 })
