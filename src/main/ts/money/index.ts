@@ -20,15 +20,21 @@ import symbols from './symbols'
  * @property {boolean} sign forces sign indication
  */
 export type IFormatMoneyOpts = {
-  strict?: boolean;
-  digitDelimiter?: string;
-  fractionDelimiter?: string;
-  fractionLength?: number;
-  currencyCode?: string;
-  currencySymbol?: string;
-  sign?: boolean;
-  fractionRemoveZeros?: boolean;
+  strict?: boolean
+  digitDelimiter?: string
+  fractionDelimiter?: string
+  fractionLength?: number
+  currencyCode?: string
+  currencySymbol?: string
+  currencyPosition?: 'left' | 'right'
+  currencySpacer?: string
+  sign?: boolean
+  fractionRemoveZeros?: boolean
 }
+
+export const nbsp = '\u00A0'
+
+export const zwsp = '\u200B'
 
 export const FORMAT_MONEY_DEFAULTS: IFormatMoneyOpts = {
   currencyCode: '',
@@ -57,10 +63,23 @@ export const FORMAT_MONEY_DEFAULTS: IFormatMoneyOpts = {
 export const formatMoney: IFormatter = (value: IAny, opts?: IFormatMoneyOpts): IFormatted => {
   const _opts = {...FORMAT_MONEY_DEFAULTS, ...opts}
   const formattedValue = formatNumber(value, _opts)
-  const {currencySymbol, currencyCode} = _opts
+  const {currencySymbol, currencyCode, currencyPosition, currencySpacer} = _opts
   const symbol = getSymbol(currencyCode, currencySymbol)
+  const spacer = currencySpacer || getSpacer(currencyCode)
+  const pos = currencyPosition || getPosition(currencyCode)
 
-  return formattedValue + (symbol ? '\u00A0' + symbol : '')
+  if (!symbol) {
+    return formattedValue
+  }
+
+  return pos === 'right'
+    ? `${formattedValue}${spacer}${symbol}`
+    : `${symbol}${spacer}${formattedValue}`
 }
 
-export const getSymbol = (currencyCode?: string, fallback?: string): string | undefined => currencyCode && symbols[currencyCode] || fallback
+
+const getSpacer = (currencyCode?: string): string => currencyCode === 'USD' ? zwsp : nbsp
+
+const getPosition = (currencyCode?: string): 'left' | 'right' => currencyCode === 'USD' ? 'left' : 'right'
+
+const getSymbol = (currencyCode?: string, fallback?: string): string | undefined => currencyCode && symbols[currencyCode] || fallback
