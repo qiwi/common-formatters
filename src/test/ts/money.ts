@@ -13,6 +13,10 @@ describe('money', () => {
     expect(formatMoney(12300.45, {currencyCode: 'RUB', fractionDelimiter: '.'})).toEqual('12 300.45\u00A0₽')
   })
 
+  it('resolves curr symbol & currency pos by curr code', () => {
+    expect(formatMoney(12300.45, {currencyCode: 'USD', fractionDelimiter: '.'})).toEqual('$\u200B12 300.45')
+  })
+
   it('allows to override currency symbol', () => {
     expect(formatMoney(123.45, {currencySymbol: 'Foo'})).toEqual('123,45\u00A0Foo')
   })
