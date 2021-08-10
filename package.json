@@ -48,7 +48,7 @@
     "@qiwi/libdefkit": "^3.0.0",
     "@qiwi/semrel-config": "^1.2.0",
     "@swissquote/crafty-preset-jest": "^1.14.0",
-    "@types/jest": "^26.0.20",
+    "@types/jest": "^27.0.0",
     "@types/node": "^14.14.32",
     "coveralls": "^3.1.0",
     "eslint": "^7.21.0",
