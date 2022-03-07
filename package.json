@@ -45,7 +45,7 @@
   },
   "devDependencies": {
     "lodash": "^4.17.21",
-    "@qiwi/libdefkit": "^3.0.0",
+    "@qiwi/libdefkit": "^4.0.0",
     "@qiwi/semrel-config": "^1.2.0",
     "@swissquote/crafty-preset-jest": "^1.14.0",
     "@types/jest": "^27.0.0",
