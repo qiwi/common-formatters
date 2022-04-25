@@ -1,7 +1,6 @@
 # common-formatters
 
 [![buildStatus](https://img.shields.io/travis/qiwi/common-formatters.svg?maxAge=3600&branch=master)](https://travis-ci.org/qiwi/common-formatters)
-[![dependencyStatus](https://img.shields.io/david/qiwi/common-formatters.svg?maxAge=3600)](https://david-dm.org/qiwi/common-formatters)
 [![Maintainability](https://api.codeclimate.com/v1/badges/aa149c9058728b89a577/maintainability)](https://codeclimate.com/github/qiwi/common-formatters/maintainability)
 [![Test Coverage](https://api.codeclimate.com/v1/badges/aa149c9058728b89a577/test_coverage)](https://codeclimate.com/github/qiwi/common-formatters/test_coverage)
 [![npm (scoped)](https://img.shields.io/npm/v/@qiwi/common-formatters)](https://www.npmjs.com/package/@qiwi/common-formatters)
