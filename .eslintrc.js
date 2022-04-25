@@ -7,5 +7,6 @@ module.exports = {
     'sonarjs/no-duplicate-string': 'off',
     'unicorn/no-null': 'off',
     'unicorn/no-zero-fractions': 'off',
+    'unicorn/prefer-spread': 'off'
   },
 }
