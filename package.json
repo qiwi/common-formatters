@@ -63,7 +63,7 @@
     "typescript": "4.9.3",
     "mkdirp": "^1.0.4",
     "cpy-cli": "^4.1.0",
-    "prettier-config-qiwi": "^1.6.1"
+    "prettier-config-qiwi": "^2.0.0"
   },
   "prettier": "prettier-config-qiwi"
 }
