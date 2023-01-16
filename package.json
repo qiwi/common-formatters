@@ -61,7 +61,7 @@
     "ts-jest": "^29.0.0",
     "typedoc": "^0.23.0",
     "typescript": "4.9.4",
-    "mkdirp": "^1.0.4",
+    "mkdirp": "^2.0.0",
     "cpy-cli": "^4.1.0",
     "prettier-config-qiwi": "^2.0.0"
   },
