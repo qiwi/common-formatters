@@ -1,3 +1,8 @@
+## [1.0.0](https://github.com/qiwi/common-formatters/compare/undefined...v1.0.0) (2023-03-18)
+
+### Fixes & improvements
+* refactor: apply strict maven dir layout ([cdcb9fd](https://github.com/qiwi/common-formatters/commit/cdcb9fd37e6c6a1d1ed3d5f005a146f37d194735))
+
 # [1.2.0](https://github.com/qiwi/common-formatters/compare/v1.1.0...v1.2.0) (2021-03-09)
 
 
