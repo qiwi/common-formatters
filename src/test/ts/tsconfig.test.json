@@ -1,0 +1,12 @@
+{
+  "extends": "../../../src/main/ts/tsconfig.json",
+  "include": [
+    "src/**/*"
+  ],
+  "exclude": [
+    "node_modules"
+  ],
+  "compilerOptions": {
+    "noImplicitReturns": false
+  }
+}

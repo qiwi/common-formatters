@@ -1,4 +1,5 @@
 module.exports = {
+  ignorePatterns: ["src/main/flow"],
   extends: [
     'eslint-config-qiwi',
     'prettier',

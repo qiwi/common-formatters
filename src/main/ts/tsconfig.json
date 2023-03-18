@@ -1,0 +1,29 @@
+{
+  "compilerOptions": {
+    "rootDir": "./",
+    "baseUrl": "./",
+    "lib": [
+      "esnext"
+    ],
+    "target": "esnext",
+    "module": "esnext",
+    "moduleResolution": "nodenext",
+    "outDir": "../../target/cjs",
+    "strict": true,
+    "importHelpers": false,
+    "noEmitHelpers": false,
+    "experimentalDecorators": true,
+    "noImplicitAny": true,
+    "noImplicitReturns": false,
+    "noFallthroughCasesInSwitch": false,
+    "declaration": true,
+    "esModuleInterop": true,
+
+    "incremental": true,
+    "tsBuildInfoFile": "../../temp/tsc/.tsbuildinfo"
+  },
+  "include": ["*.ts"],
+  "exclude": [
+    "node_modules",
+  ]
+}
