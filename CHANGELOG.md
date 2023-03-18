@@ -1,3 +1,9 @@
+## [1.2.2](https://github.com/qiwi/common-formatters/compare/v1.2.1...v1.2.2) (2023-03-18)
+
+### Fixes & improvements
+* fix: sync version ([6286c13](https://github.com/qiwi/common-formatters/commit/6286c130445fd6b02e6aceb6d9f0a45734b3062c))
+* refactor: apply strict maven dir layout ([cdcb9fd](https://github.com/qiwi/common-formatters/commit/cdcb9fd37e6c6a1d1ed3d5f005a146f37d194735))
+
 ## [1.0.0](https://github.com/qiwi/common-formatters/compare/undefined...v1.0.0) (2023-03-18)
 
 ### Fixes & improvements
