@@ -1,17 +1,17 @@
-# common-formatters
+# @qiwi/common-formatters
 
-[![buildStatus](https://img.shields.io/travis/qiwi/common-formatters.svg?maxAge=3600&branch=master)](https://travis-ci.org/qiwi/common-formatters)
+[![CI](https://github.com/qiwi/common-formatters/actions/workflows/ci.yaml/badge.svg)](https://github.com/qiwi/common-formatters/actions/workflows/ci.yaml)
 [![Maintainability](https://api.codeclimate.com/v1/badges/aa149c9058728b89a577/maintainability)](https://codeclimate.com/github/qiwi/common-formatters/maintainability)
 [![Test Coverage](https://api.codeclimate.com/v1/badges/aa149c9058728b89a577/test_coverage)](https://codeclimate.com/github/qiwi/common-formatters/test_coverage)
 [![npm (scoped)](https://img.shields.io/npm/v/@qiwi/common-formatters)](https://www.npmjs.com/package/@qiwi/common-formatters)
 
-Common string formatters.
+> Common string formatters
 
-#### Motivation
+### Motivation
 There's no such thing as universal formatters collection, but ... Ha, and this one library is just a set of several controversial workarounds. 
 What can be said in defense? Smaller is better.
 
-##### Usage examples
+## Usage
 ```javascript
     import {formatMoney, formatNumber, formatCardPan, formatPhone, formatPercent} from '@qiwi/common-formatters'
 ```
@@ -105,3 +105,6 @@ What can be said in defense? Smaller is better.
 ```javascript
     formatCardPan('1234567812345678', {digitDelimiter: '-'}) // '1234-5678-1234-5678'
 ```
+
+### License
+[MIT](./LICENSE)

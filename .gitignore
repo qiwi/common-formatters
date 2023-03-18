@@ -16,11 +16,15 @@ pids
 *.pid.lock
 
 # Coverage
-flow-coverage
 lib-cov
 coverage
+coverage.*
 .nyc_output
-*.lcov
+
+# Codeclimate
+codeclimate.*
+cc-reporter
+cc-reporter.*
 
 # Bundles
 bundle
@@ -29,36 +33,41 @@ dist
 target
 typings
 flow-typed
+buildstamp.json
 
-# Docs
+#Docs
 docs
 doc
 
 # Deps
 node_modules
 jspm_packages
-bower_components
 
 #IDE
 .idea
 .idea/
 
-# Yarn Integrity file
-.yarn-integrity
-
 .npm
 .eslintcache
 .node_repl_history
 .env
+.npmrc
+.yarnrc
 
 # Typescript
 *.tsbuildinfo
 .tsbuildinfo
 buildcache
 .buildcache
+.rts2_cache_cjs
+.rts2_cache_es
+.rts2_cache_umd
 
-# Microbundle cache
-.rpt2_cache/
-.rts2_cache_cjs/
-.rts2_cache_es/
-.rts2_cache_umd/
+# Creds
+*.asc
+*.key
+*.pem
+*.cert
+
+# Temp
+temp
