@@ -96,6 +96,10 @@ jobs:
     runs-on: ubuntu-20.04
     steps:
       - uses: actions/checkout@v3
+        with:
+          fetch-depth: 0
+          ref: master
+          persist-credentials: false
 
       - name: Restore artifact
         uses: actions/download-artifact@v3
