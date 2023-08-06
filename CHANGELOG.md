@@ -1,3 +1,8 @@
+## [1.2.3](https://github.com/qiwi/common-formatters/compare/v1.2.2...v1.2.3) (2023-08-06)
+
+### Fixes & improvements
+* perf: up deps ([243f32c](https://github.com/qiwi/common-formatters/commit/243f32cfeea72ec403ca1104fad3e8959dbbb6f8))
+
 ## [1.2.2](https://github.com/qiwi/common-formatters/compare/v1.2.1...v1.2.2) (2023-03-18)
 
 ### Fixes & improvements

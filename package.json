@@ -1,6 +1,6 @@
 {
   "name": "@qiwi/common-formatters",
-  "version": "1.2.2",
+  "version": "1.2.3",
   "description": "Common string formatters",
   "main": "./target/cjs/index.js",
   "module": "./target/esm/index.mjs",
