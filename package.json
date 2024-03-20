@@ -64,7 +64,7 @@
     "ts-jest": "^29.1.1",
     "tsc-esm-fix": "^2.20.14",
     "typedoc": "^0.24.8",
-    "typescript": "5.1.6"
+    "typescript": "5.4.3"
   },
   "prettier": "prettier-config-qiwi"
 }
