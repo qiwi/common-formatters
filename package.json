@@ -51,7 +51,7 @@
   },
   "devDependencies": {
     "@types/jest": "^29.5.3",
-    "concurrently": "^8.2.0",
+    "concurrently": "^9.0.0",
     "esbuild": "^0.18.18",
     "esbuild-node-externals": "^1.8.0",
     "eslint": "^10.0.0",
